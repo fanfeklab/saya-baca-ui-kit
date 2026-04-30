@@ -5,7 +5,6 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { NeoText } from '@/components/atoms/neo-text';
-import { ThemeToggle } from '@/components/atoms/theme-toggle';
 import { Home } from 'lucide-react';
 
 const DEMO_ROUTES = [
@@ -63,7 +62,6 @@ export function DemoSidebar() {
            </Link>
            <NeoText variant="subtitle" className="text-xl">UI Docs</NeoText>
         </div>
-        <ThemeToggle />
       </div>
       
       <ScrollArea className="flex-1 min-h-0">

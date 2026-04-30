@@ -18,11 +18,11 @@ export default function TypographyDemoPage() {
           </div>
           <div>
             <NeoText variant="title">Title / H1</NeoText>
-            <p className="text-sm text-muted-foreground mt-2">variant="title"</p>
+            <p className="text-sm text-muted-foreground mt-2">variant=&quot;title&quot;</p>
           </div>
           <div>
             <NeoText variant="subtitle">Subtitle / H2</NeoText>
-            <p className="text-sm text-muted-foreground mt-2">variant="subtitle"</p>
+            <p className="text-sm text-muted-foreground mt-2">variant=&quot;subtitle&quot;</p>
           </div>
         </div>
       </section>
@@ -35,7 +35,7 @@ export default function TypographyDemoPage() {
               Ini adalah contoh penggunaan font standar untuk paragraf atau deskripsi panjang. 
               Cocok digunakan untuk konten instruksi, cerita dalam aplikasi, atau teks penjelas.
             </NeoText>
-            <p className="text-sm text-muted-foreground mt-2">variant="body"</p>
+            <p className="text-sm text-muted-foreground mt-2">variant=&quot;body&quot;</p>
           </div>
           
           <div className="mt-4">
@@ -51,7 +51,7 @@ export default function TypographyDemoPage() {
         <div className="flex flex-col gap-4 p-8 border-4 border-dashed border-border rounded-xl bg-background/50 backdrop-blur-sm">
           <div>
             <NeoText variant="title" stroke className="text-yellow-400">Title with Outline Stroke</NeoText>
-            <p className="text-sm text-muted-foreground mt-2">variant="title" stroke (Berguna untuk judul game)</p>
+            <p className="text-sm text-muted-foreground mt-2">variant=&quot;title&quot; stroke (Berguna untuk judul game)</p>
           </div>
         </div>
       </section>

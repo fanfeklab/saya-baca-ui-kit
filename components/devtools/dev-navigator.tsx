@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
 import { useAppStore } from "@/lib/store";
+import { stringify } from 'flatted';
 
 const ROUTES = [
   { group: "Marketing", items: [
@@ -143,7 +144,7 @@ function StoreVisualizer() {
       <div className="p-3 border-2 border-dashed border-border rounded-lg bg-muted flex flex-col gap-2">
         <div className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Current User Mock</div>
         <pre className="text-[10px] sm:text-xs overflow-x-auto font-mono bg-black text-green-400 p-2 rounded-md">
-{JSON.stringify({ user, dailyMission }, null, 2)}
+{stringify({ user, dailyMission }, null, 2)}
         </pre>
       </div>
     </div>

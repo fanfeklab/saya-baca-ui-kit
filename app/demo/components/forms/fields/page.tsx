@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { NeoText } from '@/components/atoms/neo-text';
 import { FormField } from '@/components/molecules/form-field';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { stringify } from 'flatted';
 
 const formSchema = z.object({
   username: z.string().min(3, "Username minimal 3 karakter"),
@@ -36,7 +37,7 @@ export default function FieldsDemoPage() {
             <CardTitle>Register Dummy</CardTitle>
           </CardHeader>
           <CardContent>
-            <form onSubmit={form.handleSubmit((data) => alert(JSON.stringify(data)))} className="space-y-6">
+            <form onSubmit={form.handleSubmit((data) => alert(stringify(data)))} className="space-y-6">
               <FormField 
                 id="username"
                 label="Username"
