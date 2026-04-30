@@ -5,19 +5,13 @@ import { NeoText } from '@/components/atoms/neo-text';
 import { ComponentPreview } from '@/components/molecules/component-preview';
 import { Button } from '@/components/ui/button';
 import { Type, Volume2, Lightbulb, Minus, Plus, Settings2 } from 'lucide-react';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
 
 export default function EduToolsDemoPage() {
   const [fontSize, setFontSize] = useState(16);
   const [fontFamily, setFontFamily] = useState('font-sans');
   const [isUppercase, setIsUppercase] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [showHint, setShowHint] = useState(false);
 
@@ -51,20 +45,35 @@ export default function EduToolsDemoPage() {
               </Button>
             </div>
             
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="rounded-xl px-4 gap-2 border-r-4 border-border mr-1">
-                  <Type className="size-4" />
-                  Font Style
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="border-4 border-border shadow-neo rounded-2xl bg-card p-2 font-bold min-w-[200px]">
-                <DropdownMenuLabel>Pilih Font</DropdownMenuLabel>
-                <DropdownMenuSeparator className="bg-border h-1" />
-                <DropdownMenuItem onClick={() => setFontFamily('font-sans')} className="rounded-xl cursor-pointer hover:bg-muted font-sans font-medium">Standard (Sans)</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setFontFamily('font-mono')} className="rounded-xl cursor-pointer hover:bg-muted font-mono">Monospace</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <div className="relative">
+              <Button 
+                variant="outline" 
+                className="rounded-xl px-4 gap-2 border-r-4 border-border mr-1"
+                onClick={() => setShowDropdown(!showDropdown)}
+              >
+                <Type className="size-4" />
+                Font Style
+              </Button>
+              
+              {showDropdown && (
+                <div className="absolute top-full mt-2 left-0 border-4 border-border shadow-neo rounded-2xl bg-card p-2 font-bold min-w-[200px] z-50">
+                  <div className="px-2 py-1.5 text-sm font-medium text-muted-foreground">Pilih Font</div>
+                  <div className="h-1 bg-border my-1 rounded-full" />
+                  <div 
+                    onClick={() => { setFontFamily('font-sans'); setShowDropdown(false); }} 
+                    className="rounded-xl cursor-pointer hover:bg-muted font-sans font-medium px-2 py-1.5 text-sm"
+                  >
+                    Standard (Sans)
+                  </div>
+                  <div 
+                    onClick={() => { setFontFamily('font-mono'); setShowDropdown(false); }} 
+                    className="rounded-xl cursor-pointer hover:bg-muted font-mono px-2 py-1.5 text-sm"
+                  >
+                    Monospace
+                  </div>
+                </div>
+              )}
+            </div>
 
             <Button 
               variant={isUppercase ? "default" : "outline"} 
