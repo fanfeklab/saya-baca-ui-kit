@@ -49,26 +49,26 @@
 ### Main App (Edu-App)
 - [x] `/login` (Welcome & Switch Account)
 - [x] `/home` (Dashboard Anak / Misi Harian)
-- [ ] `/game/membaca` (Contoh Modul Belajar)
-- [ ] `/game/berhitung` (Contoh Modul Belajar)
-- [ ] `/game/menyanyi` (Contoh Modul Belajar)
-- [ ] `/game/menggambar` (Contoh Modul Mewarnai)
+- [x] `/game/membaca` (Contoh Modul Belajar)
+- [x] `/game/berhitung` (Contoh Modul Belajar)
+- [x] `/game/menyanyi` (Contoh Modul Belajar)
+- [x] `/game/menggambar` (Contoh Modul Mewarnai)
 - [x] `/parent` (Dashboard Orang Tua, Laporan)
-- [ ] `/prestasi` (Galeri Piala/Badge)
-- [ ] `/profil` (Ganti Avatar, Pengaturan Dasar)
+- [x] `/prestasi` (Galeri Piala/Badge)
+- [x] `/profil` (Ganti Avatar, Pengaturan Dasar)
 
 ### Dashboard (Admin ERP)
 - [x] `/dashboard` (Analytics Overview)
-- [ ] `/dashboard/users` (User Management)
-- [ ] `/dashboard/content` (Content/Curriculum Management)
+- [x] `/dashboard/users` (User Management)
+- [x] `/dashboard/content` (Content/Curriculum Management)
 
 ## 4. State & Interactions
-- [ ] Pindah halaman animasi (Framer Motion page transitions)
-- [ ] Global Store / Context untuk Mock Data (Misi hari ini, level, badge)
-- [ ] Sound Effects (onClick/onTrigger)
+- [x] Pindah halaman animasi (Framer Motion page transitions) / CSS Transitions
+- [x] Global Store / Context untuk Mock Data (Misi hari ini, level, badge)
+- [x] Sound Effects (onClick/onTrigger)
 
 ## 5. UI/UX Final Polish
-- [ ] Mobile Responsiveness (Responsive padding, touch target 44px)
-- [ ] Neo-brutalism design style consistency (shadow, border)
-- [ ] Color Palette Harmonization
-- [ ] Dark Mode Support Verification
+- [x] Mobile Responsiveness (Responsive padding, touch target 44px)
+- [x] Neo-brutalism design style consistency (shadow, border)
+- [x] Color Palette Harmonization
+- [x] Dark Mode Support Verification
