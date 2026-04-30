@@ -6,6 +6,8 @@ import { Progress } from '@/components/ui/progress';
 import { BookOpen, Shapes, Music, Paintbrush } from 'lucide-react';
 import { ConfettiBurst } from '@/components/atoms/confetti-burst';
 import { AudioButton } from '@/components/atoms/audio-button';
+import { IllustrationHolder } from '@/components/atoms/illustration-holder';
+import { GameSelectionGrid } from '@/components/organisms/game-selection-grid';
 
 export default function HomeAppPage() {
   return (
@@ -35,68 +37,19 @@ export default function HomeAppPage() {
       {/* Categories / Games */}
       <section>
         <NeoText variant="subtitle" className="mb-4 inline-block">Pilih Permainan 🎲</NeoText>
-        <div className="grid grid-cols-2 gap-4">
-          
-          <Link href="/home" className="block outline-none focus-visible:ring-4 ring-ring rounded-xl rounded-b-[10px]">
-            <Card className="h-full bg-accent/10 border-accent shadow-[4px_4px_0_0_var(--color-accent)] hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[6px_6px_0_0_var(--color-accent)] transition-all cursor-pointer active:translate-y-0 active:translate-x-0 active:shadow-none">
-              <CardContent className="p-6 flex flex-col items-center justify-center text-center gap-3">
-                <div className="p-4 bg-accent rounded-full border-2 border-border shadow-[2px_2px_0_0_#000000]">
-                  <BookOpen className="w-8 h-8 text-accent-foreground" />
-                </div>
-                <NeoText variant="body" className="font-bold">Membaca</NeoText>
-              </CardContent>
-            </Card>
-          </Link>
-
-          <Link href="/home" className="block outline-none focus-visible:ring-4 ring-ring rounded-xl rounded-b-[10px]">
-            <Card className="h-full bg-success/10 border-success shadow-[4px_4px_0_0_var(--color-success)] hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[6px_6px_0_0_var(--color-success)] transition-all cursor-pointer active:translate-y-0 active:translate-x-0 active:shadow-none">
-              <CardContent className="p-6 flex flex-col items-center justify-center text-center gap-3">
-                <div className="p-4 bg-success rounded-full border-2 border-border shadow-[2px_2px_0_0_#000000]">
-                  <Shapes className="w-8 h-8 text-success-foreground" />
-                </div>
-                <NeoText variant="body" className="font-bold">Berhitung</NeoText>
-              </CardContent>
-            </Card>
-          </Link>
-
-          <Link href="/home" className="block outline-none focus-visible:ring-4 ring-ring rounded-xl rounded-b-[10px]">
-            <Card className="h-full bg-secondary/10 border-secondary shadow-[4px_4px_0_0_var(--color-secondary)] hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[6px_6px_0_0_var(--color-secondary)] transition-all cursor-pointer active:translate-y-0 active:translate-x-0 active:shadow-none">
-              <CardContent className="p-6 flex flex-col items-center justify-center text-center gap-3">
-                <div className="p-4 bg-secondary rounded-full border-2 border-border shadow-[2px_2px_0_0_#000000]">
-                  <Music className="w-8 h-8 text-secondary-foreground" />
-                </div>
-                <NeoText variant="body" className="font-bold">Menyanyi</NeoText>
-              </CardContent>
-            </Card>
-          </Link>
-
-          <Link href="/home" className="block outline-none focus-visible:ring-4 ring-ring rounded-xl rounded-b-[10px]">
-            <Card className="h-full bg-primary/10 border-primary shadow-[4px_4px_0_0_var(--color-primary)] hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[6px_6px_0_0_var(--color-primary)] transition-all cursor-pointer active:translate-y-0 active:translate-x-0 active:shadow-none">
-              <CardContent className="p-6 flex flex-col items-center justify-center text-center gap-3">
-                <div className="p-4 bg-primary rounded-full border-2 border-border shadow-[2px_2px_0_0_#000000]">
-                  <Paintbrush className="w-8 h-8 text-primary-foreground" />
-                </div>
-                <NeoText variant="body" className="font-bold">Mewarnai</NeoText>
-              </CardContent>
-            </Card>
-          </Link>
-
-        </div>
+        <GameSelectionGrid />
       </section>
 
       {/* Cerita Hari Ini */}
       <section>
          <NeoText variant="subtitle" className="mb-4 inline-block">Cerita Baru 📖</NeoText>
-         <Card className="bg-background flex flex-row items-center cursor-pointer hover:-translate-y-1 hover:shadow-[4px_4px_0_0_#000000] transition-all">
-            <div className="w-32 h-32 bg-secondary rounded-l-[10px] border-r-2 border-border flex items-center justify-center shrink-0">
-               {/* Illustration Placeholder */}
-               <div className="text-4xl text-center">🦁</div>
-            </div>
-            <CardContent className="p-4 flex-1">
+         <Card className="bg-background flex flex-row items-center cursor-pointer hover:-translate-y-1 hover:shadow-[4px_4px_0_0_#000000] p-3 gap-4 transition-all">
+            <IllustrationHolder variant="secondary" size="lg" emoji="🦁" />
+            <div className="flex-1">
               <NeoText variant="body" className="font-bold block mb-1 leading-tight">Singa yang Pemberani</NeoText>
-              <p className="text-xs text-muted-foreground mb-2">Belajar tentang keberanian hari ini.</p>
+              <p className="text-xs text-muted-foreground mb-3">Belajar tentang keberanian hari ini.</p>
               <AudioButton variant="secondary" size="sm" className="w-fit text-xs h-8 px-3">Dengar Cerita</AudioButton>
-            </CardContent>
+            </div>
          </Card>
       </section>
     </div>

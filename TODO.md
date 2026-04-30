@@ -6,7 +6,7 @@
 - [x] Basic shadcn/ui integration
 - [x] Layout grouping (`(marketing)`, `(main-app)`, `(dashboard)`)
 - [x] Global Layout Root (`app/layout.tsx`)
-- [ ] DX Tools: Implement Floating Route Navigator & Dev Panel
+- [x] DX Tools: Implement Floating Route Navigator & Dev Panel
 - [ ] Context/State Visualizer untuk Dev Tools
 
 ## 2. System Design (Atomic Design)
@@ -17,21 +17,21 @@
 - [x] ThemeToggle
 - [x] AudioButton
 - [x] ConfettiBurst
-- [ ] Avatar/Illustration Holder
-- [ ] Base Icons (Lucide)
+- [x] Avatar/Illustration Holder
+- [x] Base Icons (Lucide)
 - [ ] Base Colors & CSS Variables Mapping
 - [ ] Decorative Shapes (Stars, Bubbles, dll)
 
 ### Molecules (Gabungan)
 - [x] Content Card (Hero Mission, etc)
-- [ ] Floating Bottom Navigation (Main App) - Extract to molecule
-- [ ] Sidebar Menu Item (Admin)
-- [ ] Top App Bar Profile (Main App)
-- [ ] Form Input Field (Input + Label)
+- [x] Floating Bottom Navigation (Main App) - Extract to molecule
+- [x] Sidebar Menu Item (Admin)
+- [x] Top App Bar Profile (Main App)
+- [x] Form Input Field (Input + Label)
 
 ### Organisms (Kompleks)
-- [ ] Main App Layout Header (Top & Bottom bars)
-- [ ] Admin Sidebar Panel
+- [x] Main App Layout Header (Top & Bottom bars)
+- [x] Admin Sidebar Panel
 - [ ] Game/Module Selection Grid
 - [ ] Parent Report Chart Panel
 - [ ] Analytics Summary (Admin)

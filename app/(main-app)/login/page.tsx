@@ -1,7 +1,7 @@
 import { NeoText } from '@/components/atoms/neo-text';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { FormField } from '@/components/molecules/form-field';
 import Link from 'next/link';
 
 export default function LoginPage() {
@@ -13,14 +13,15 @@ export default function LoginPage() {
           <NeoText variant="body" className="text-muted-foreground">Silakan masuk ke akun Anda</NeoText>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="space-y-2">
-            <NeoText variant="body" className="font-bold">Email / Username</NeoText>
-            <Input placeholder="budi@example.com" />
-          </div>
-          <div className="space-y-2">
-            <NeoText variant="body" className="font-bold">Password</NeoText>
-            <Input type="password" placeholder="••••••••" />
-          </div>
+          <FormField 
+            label="Email / Username" 
+            placeholder="budi@example.com" 
+          />
+          <FormField 
+            label="Password" 
+            type="password" 
+            placeholder="••••••••" 
+          />
           <Link href="/home" passHref className="w-full block">
             <Button variant="default" className="w-full font-bold">Masuk</Button>
           </Link>

@@ -99,13 +99,39 @@ export function DevNavigator() {
               </div>
             </div>
 
-            {/* Placeholder for State toggles, Animation toggles */}
-            <div className="pt-4 border-t-2 border-border mt-4">
+            {/* State & Context Visualizer */}
+            <div className="pt-4 border-t-2 border-border mt-4 pb-12">
                <h3 className="font-bold text-sm mb-3 flex items-center gap-2">
                 <Database className="w-4 h-4" /> State & Context 
               </h3>
-              <div className="p-3 border-2 border-dashed border-border rounded-lg bg-muted text-xs text-muted-foreground">
-                (State Visualizer & Mock Toggle akan diletakkan di sini)
+              
+              <div className="space-y-3">
+                <div className="flex items-center justify-between p-2 rounded-lg border-2 border-border bg-card">
+                  <div className="text-sm font-bold">Animasi Transisi</div>
+                  <Badge variant="success" className="shadow-none">Aktif</Badge>
+                </div>
+
+                <div className="flex items-center justify-between p-2 rounded-lg border-2 border-border bg-card">
+                  <div className="text-sm font-bold">Sound Effect</div>
+                  <Badge variant="destructive" className="shadow-none">Nonaktif</Badge>
+                </div>
+
+                <div className="p-3 border-2 border-dashed border-border rounded-lg bg-muted flex flex-col gap-2">
+                  <div className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Current User Mock</div>
+                  <pre className="text-[10px] sm:text-xs overflow-x-auto font-mono bg-black text-green-400 p-2 rounded-md">
+{JSON.stringify({
+  id: "USR-001",
+  name: "Budi",
+  role: "KID",
+  level: 3,
+  stars: 1250,
+  dailyMission: {
+    total: 3,
+    completed: 1
+  }
+}, null, 2)}
+                  </pre>
+                </div>
               </div>
             </div>
 
