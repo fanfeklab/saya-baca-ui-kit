@@ -2,68 +2,104 @@
 
 import { MissionCard, StoryCard, StatCard } from '@/components/molecules/content-cards';
 import { NeoText } from '@/components/atoms/neo-text';
-import { Users, Star, Trophy } from 'lucide-react';
+import { ComponentPreview } from '@/components/molecules/component-preview';
+import { PropsTable } from '@/components/molecules/props-table';
+import { Activity } from 'lucide-react';
 
-export default function ContentCardsDemoPage() {
+export default function CardsDemoPage() {
   return (
-    <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <NeoText variant="title">Content Cards</NeoText>
-      
-      <section className="space-y-6">
-        <NeoText variant="subtitle">Mission Card</NeoText>
-        <div className="flex flex-col gap-6 p-8 border-4 border-dashed border-border rounded-xl bg-background/50 backdrop-blur-sm max-w-sm">
+    <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500 max-w-4xl pb-20">
+      <div>
+        <NeoText variant="title">Content Cards</NeoText>
+        <NeoText variant="body" className="text-muted-foreground mt-2">
+          Komponen card interaktif untuk menampilkan modul, misi, atau konten penting.
+        </NeoText>
+      </div>
+
+      <ComponentPreview
+        title="Mission Card (Hero)"
+        description="Card yang digunakan untuk menampilkan The Main Game (Misi utama)."
+        code={`import { MissionCard } from "@/components/molecules/content-cards"\n
+<MissionCard 
+  title="Misi Hari Ini"
+  description="Selesaikan tantangan matematika dasar."
+  progress={3}
+  total={5}
+  onAction={() => alert("Gas!")}
+/>`}
+      >
+        <div className="w-full max-w-sm">
           <MissionCard 
-            title="Selesaikan 3 Tantangan!"
-            description="Dapatkan bintang emas di akhir misi."
-            progress={2}
-            total={3}
-            onAction={() => alert('Misi dilanjutkan!')}
+            title="Misi Hari Ini"
+            description="Selesaikan tantangan matematika dasar."
+            progress={3}
+            total={5}
+            onAction={() => alert("Lanjutkan")}
           />
         </div>
-      </section>
+      </ComponentPreview>
 
-      <section className="space-y-6">
-        <NeoText variant="subtitle">Story Card</NeoText>
-        <div className="flex flex-col gap-6 p-8 border-4 border-dashed border-border rounded-xl bg-background/50 backdrop-blur-sm max-w-md">
+      <ComponentPreview
+        title="Story/Module Card"
+        description="Digunakan untuk mempresentasikan satu silabus/modul di daftar pelajaran atau cerita dongeng."
+        code={`import { StoryCard } from "@/components/molecules/content-cards"\n
+<StoryCard 
+  title="Kelinci dan Kura-Kura"
+  description="Cerita rakyat pendek"
+  emoji="🐢"
+  onRead={() => alert("Membaca")}
+  onListen={() => alert("Mendengarkan")}
+/>`}
+      >
+        <div className="w-full max-w-sm space-y-4">
           <StoryCard 
-            title="Singa yang Pemberani"
-            description="Belajar tentang keberanian hari ini bersama kawan-kawan rimba."
-            emoji="🦁"
-            onRead={() => alert('Membaca cerita...')}
-            onListen={() => alert('Mendengarkan cerita...')}
+            title="Kelinci dan Kura-Kura"
+            description="Dongeng tentang kesabaran."
+            emoji="🐢"
+            onRead={() => alert("Membaca")}
+            onListen={() => alert("Mendengarkan")}
           />
           <StoryCard 
-            title="Kancil dan Buaya"
-            description="Dongeng klasik nusantara."
-            emoji="🐊"
-            onRead={() => alert('Membaca cerita...')}
-            // no onListen to test fallback
+            title="Aktivitas Mewarnai"
+            description="Mengenal warna primer."
+            emoji="🎨"
+            onRead={() => alert("Membaca")}
           />
         </div>
-      </section>
-
-      <section className="space-y-6">
-        <NeoText variant="subtitle">Stat Card (Admin/Parent)</NeoText>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-8 border-4 border-dashed border-border rounded-xl bg-background/50 backdrop-blur-sm">
-          <StatCard 
-            title="Total XP"
-            value="12,500"
-            icon={Star}
-            trend={{ value: 12, label: "dari minggu lalu", positive: true }}
-          />
-          <StatCard 
-            title="Tingkat Kelulusan"
-            value="89%"
-            icon={Users}
-            trend={{ value: 4, label: "dari minggu lalu", positive: false }}
-          />
+      </ComponentPreview>
+      
+      <ComponentPreview
+        title="Stat Card"
+        description="Card untuk statistik admin/orang tua."
+        code={`import { StatCard } from "@/components/molecules/content-cards"
+import { Activity } from "lucide-react"\n
+<StatCard 
+  title="Total Bintang"
+  value="1,240"
+  icon={Activity}
+  trend={{ value: 24, label: "dari minggu lalu", positive: true }}
+/>`}
+      >
+        <div className="w-full max-w-xs">
           <StatCard 
             title="Bintang Terkumpul"
-            value="432"
-            icon={Trophy}
+            value="1,240"
+            icon={Activity}
+            trend={{ value: 24, label: "dari minggu lalu", positive: true }}
           />
         </div>
-      </section>
+      </ComponentPreview>
+
+      <div className="pt-8">
+        <NeoText variant="subtitle">Props Reference - MissionCard</NeoText>
+        <PropsTable props={[
+          { name: "title", type: "string", description: "Judul utama" },
+          { name: "description", type: "string", description: "Deskripsi singkat" },
+          { name: "progress", type: "number", description: "Jumlah selesai" },
+          { name: "total", type: "number", description: "Total keseluruhan" },
+          { name: "onAction", type: "() => void", description: "Aksi tombol lanjutkan" }
+        ]} />
+      </div>
     </div>
   );
 }

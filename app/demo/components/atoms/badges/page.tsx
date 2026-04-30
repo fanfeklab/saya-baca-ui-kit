@@ -1,14 +1,29 @@
 import { Badge } from '@/components/ui/badge';
 import { NeoText } from '@/components/atoms/neo-text';
+import { ComponentPreview } from '@/components/molecules/component-preview';
+import { PropsTable } from '@/components/molecules/props-table';
 
 export default function BadgesDemoPage() {
   return (
-    <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <NeoText variant="title">Badges</NeoText>
-      
-      <section className="space-y-6">
-        <NeoText variant="subtitle">Variants</NeoText>
-        <div className="flex flex-wrap gap-4 p-8 border-4 border-dashed border-border rounded-xl bg-background/50 backdrop-blur-sm">
+    <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500 max-w-4xl pb-20">
+      <div>
+        <NeoText variant="title">Badge</NeoText>
+        <NeoText variant="body" className="text-muted-foreground mt-2">
+          Displays a small badge or label, typically used to indicate status, categories, or notifications.
+        </NeoText>
+      </div>
+
+      <ComponentPreview
+        title="Variants"
+        description="Berbagai variasi badge berdasarkan fungsi dan status."
+        code={`<Badge variant="default">Level 1</Badge>
+<Badge variant="secondary">Baru</Badge>
+<Badge variant="accent">Premium</Badge>
+<Badge variant="success">Selesai</Badge>
+<Badge variant="destructive">Gagal</Badge>
+<Badge variant="outline">Guest</Badge>`}
+      >
+        <div className="flex flex-wrap gap-4 items-center justify-center">
           <Badge variant="default">Level 1</Badge>
           <Badge variant="secondary">Baru</Badge>
           <Badge variant="accent">Premium</Badge>
@@ -16,21 +31,39 @@ export default function BadgesDemoPage() {
           <Badge variant="destructive">Gagal</Badge>
           <Badge variant="outline">Guest</Badge>
         </div>
-      </section>
+      </ComponentPreview>
 
-      <section className="space-y-6">
-        <NeoText variant="subtitle">Usage Examples</NeoText>
-        <div className="flex flex-wrap gap-4 p-8 border-4 border-dashed border-border rounded-xl bg-background/50 backdrop-blur-sm">
-          <div className="flex items-center gap-2 p-2 border-2 rounded-xl bg-card">
-            <span>Matematika Dasar</span>
+      <ComponentPreview
+        title="Usage in Cards"
+        description="Contoh penggunaan badge di dalam komponen lain."
+        code={`<div className="flex items-center gap-2 p-3 border-2 rounded-xl bg-card shadow-neo">
+  <span className="font-bold">Matematika Dasar</span>
+  <Badge variant="success">Selesai</Badge>
+</div>
+<div className="flex items-center gap-2 p-3 border-2 rounded-xl bg-card shadow-neo">
+  <span className="font-bold">Membaca</span>
+  <Badge variant="accent">3/5</Badge>
+</div>`}
+      >
+        <div className="flex flex-wrap gap-4 items-center justify-center">
+          <div className="flex items-center gap-2 p-3 border-2 rounded-xl bg-card shadow-neo">
+            <span className="font-bold">Matematika Dasar</span>
             <Badge variant="success">Selesai</Badge>
           </div>
-          <div className="flex items-center gap-2 p-2 border-2 rounded-xl bg-card">
-            <span>Membaca</span>
-            <Badge variant="accent">3/5</Badge>
+          <div className="flex items-center gap-2 p-3 border-2 rounded-xl bg-card shadow-neo">
+            <span className="font-bold">Membaca</span>
+            <Badge variant="accent">Misi 3/5</Badge>
           </div>
         </div>
-      </section>
+      </ComponentPreview>
+
+      <div className="pt-8">
+        <NeoText variant="subtitle">Props Reference</NeoText>
+        <PropsTable props={[
+          { name: "variant", type: "enum", default: "\"default\"", description: "The style variant of the badge: default, secondary, destructive, outline, accent, success" },
+          { name: "className", type: "string", default: "undefined", description: "Additional CSS classes to apply" }
+        ]} />
+      </div>
     </div>
   );
 }
