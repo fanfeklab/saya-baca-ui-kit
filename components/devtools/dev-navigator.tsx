@@ -14,8 +14,10 @@ const ROUTES = [
   { group: "Marketing", items: [
     { name: "Landing Page", path: "/", icon: Megaphone }
   ]},
-  { group: "Main App (Anak & Ortu)", items: [
+  { group: "Auth Pages", items: [
     { name: "Login Gateway", path: "/login", icon: Smartphone },
+  ]},
+  { group: "Main App (Anak & Ortu)", items: [
     { name: "Home (Anak)", path: "/home", icon: Smartphone },
     { name: "Parent Dashboard", path: "/parent", icon: Smartphone },
     { name: "Game Belajar (Mock)", path: "/game/membaca", icon: Smartphone },

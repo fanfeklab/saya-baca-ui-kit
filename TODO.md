@@ -8,7 +8,7 @@
 - [x] Global Layout Root (`app/layout.tsx`)
 - [x] DX Tools: Implement Floating Route Navigator & Dev Panel
 - [x] Context/State Visualizer untuk Dev Tools
-- [ ] DX Tools: Make sidebar route navigator scrollable (ScrollArea)
+- [x] DX Tools: Make sidebar route navigator scrollable (ScrollArea)
 - [ ] Implementasi responsivitas fluid (Flex/Grid wrap, Portrait/Landscape orientation, 4K screen scaling)
 - [ ] Panduan & Implementasi Aksesibilitas (WAI-ARIA, Semantic HTML, Screen Readers)
 - [ ] Arsitektur UI Kit Showcase: Halaman Docs dengan Sidebar (Grouping Komponen per tipe, variasi terisolasi per halaman)
@@ -60,8 +60,10 @@
 ### Marketing
 - [x] `/` (Landing Page)
 
-### Main App (Edu-App)
+### Auth Pages
 - [x] `/login` (Welcome & Switch Account)
+
+### Main App (Edu-App)
 - [x] `/home` (Dashboard Anak / Misi Harian)
 - [x] `/game/membaca` (Contoh Modul Belajar)
 - [x] `/game/berhitung` (Contoh Modul Belajar)
