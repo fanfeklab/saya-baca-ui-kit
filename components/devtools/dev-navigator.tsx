@@ -57,7 +57,7 @@ export function DevNavigator() {
           </p>
         </SheetHeader>
         
-        <ScrollArea className="flex-1 p-6">
+        <div className="flex-1 overflow-y-auto p-6">
           <div className="space-y-6">
             
             {/* Quick Navigation */}
@@ -110,7 +110,7 @@ export function DevNavigator() {
             </div>
 
           </div>
-        </ScrollArea>
+        </div>
       </SheetContent>
     </Sheet>
   );

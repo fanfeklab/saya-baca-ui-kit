@@ -7,7 +7,11 @@
 - [x] Layout grouping (`(marketing)`, `(main-app)`, `(dashboard)`)
 - [x] Global Layout Root (`app/layout.tsx`)
 - [x] DX Tools: Implement Floating Route Navigator & Dev Panel
-- [ ] Context/State Visualizer untuk Dev Tools
+- [x] Context/State Visualizer untuk Dev Tools
+- [ ] DX Tools: Make sidebar route navigator scrollable (ScrollArea)
+- [ ] Implementasi responsivitas fluid (Flex/Grid wrap, Portrait/Landscape orientation, 4K screen scaling)
+- [ ] Panduan & Implementasi Aksesibilitas (WAI-ARIA, Semantic HTML, Screen Readers)
+- [ ] Arsitektur UI Kit Showcase: Halaman Docs dengan Sidebar (Grouping Komponen per tipe, variasi terisolasi per halaman)
 
 ## 2. System Design (Atomic Design)
 
@@ -21,6 +25,7 @@
 - [x] Base Icons (Lucide)
 - [ ] Base Colors & CSS Variables Mapping
 - [ ] Decorative Shapes (Stars, Bubbles, dll)
+- [ ] Feedback & Loading Elements (SkeletonNeo, ProgressNeo, BadgeNeo)
 
 ### Molecules (Gabungan)
 - [x] Content Card (Hero Mission, etc)
@@ -28,6 +33,8 @@
 - [x] Sidebar Menu Item (Admin)
 - [x] Top App Bar Profile (Main App)
 - [x] Form Input Field (Input + Label)
+- [ ] Komponen Navigasi Tambahan (Breadcrumbs, Tabs)
+- [ ] Komponen Data (StatCard, UserBadge, NotificationBell, EmptyState)
 
 ### Organisms (Kompleks)
 - [x] Main App Layout Header (Top & Bottom bars)
@@ -35,13 +42,20 @@
 - [ ] Game/Module Selection Grid
 - [ ] Parent Report Chart Panel
 - [ ] Analytics Summary (Admin)
+- [ ] Social & Profile (ProfileSwitcher, Leaderboard, FriendList)
 
 ### Templates (Pola Halaman)
 - [x] Marketing Layout
 - [x] Main App Layout (Edu-App Style)
 - [x] Admin Dashboard Layout (ERP Style)
+- [ ] UI Kit Docs Template (Sidebar + Content Area)
 
 ## 3. Pages (Example Pages)
+
+### UI Kit Showcase & Docs
+- [ ] Halaman Showcase dengan Sidebar Grouping (Atoms, Molecules, Forms, Organisms)
+- [ ] Page khusus `Form Field` (variasi validation, sizes, types)
+- [ ] Page khusus `Buttons` & `Icons`
 
 ### Marketing
 - [x] `/` (Landing Page)
@@ -64,7 +78,7 @@
 
 ## 4. State & Interactions
 - [x] Pindah halaman animasi (Framer Motion page transitions) / CSS Transitions
-- [x] Global Store / Context untuk Mock Data (Misi hari ini, level, badge)
+- [x] Global Store / Context untuk Mock Data (Misi hari ini, level, badge) // Zustand
 - [x] Sound Effects (onClick/onTrigger)
 
 ## 5. UI/UX Final Polish
@@ -72,3 +86,4 @@
 - [x] Neo-brutalism design style consistency (shadow, border)
 - [x] Color Palette Harmonization
 - [x] Dark Mode Support Verification
+
