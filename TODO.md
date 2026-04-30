@@ -9,9 +9,10 @@
 - [x] DX Tools: Implement Floating Route Navigator & Dev Panel
 - [x] Context/State Visualizer untuk Dev Tools
 - [x] DX Tools: Make sidebar route navigator scrollable (ScrollArea)
-- [ ] Implementasi responsivitas fluid (Flex/Grid wrap, Portrait/Landscape orientation, 4K screen scaling)
-- [ ] Panduan & Implementasi Aksesibilitas (WAI-ARIA, Semantic HTML, Screen Readers)
-- [ ] Arsitektur UI Kit Showcase: Halaman Docs dengan Sidebar (Grouping Komponen per tipe, variasi terisolasi per halaman)
+- [x] Fix Hydration Error and Nested Button problems.
+- [ ] **Implementasi Responsivitas Fluid** (Flex/Grid wrap, Portrait/Landscape orientation, 4K screen scaling, prevent overflow)
+- [ ] **Panduan & Implementasi Aksesibilitas** (WAI-ARIA, Semantic HTML, Screen Readers support, focus visible)
+- [x] **Arsitektur UI Kit Showcase**: Halaman Docs dengan Sidebar (Grouping Komponen per tipe, variasi terisolasi per halaman)
 
 ## 2. System Design (Atomic Design)
 

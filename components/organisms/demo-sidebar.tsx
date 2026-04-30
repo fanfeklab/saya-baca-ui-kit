@@ -55,8 +55,8 @@ export function DemoSidebar() {
   const pathname = usePathname();
 
   return (
-    <div className="flex flex-col h-full bg-card">
-      <div className="p-4 border-b-2 border-border flex items-center justify-between">
+    <div className="flex flex-col h-full bg-card overflow-hidden">
+      <div className="p-4 border-b-2 border-border flex items-center justify-between shrink-0">
         <div className="flex items-center gap-2">
            <Link href="/" className="hover:opacity-80 transition-opacity">
               <Home className="w-5 h-5" />
@@ -66,7 +66,7 @@ export function DemoSidebar() {
         <ThemeToggle />
       </div>
       
-      <ScrollArea className="flex-1">
+      <ScrollArea className="flex-1 min-h-0">
         <div className="p-4 space-y-6">
           {DEMO_ROUTES.map((group, idx) => (
             <div key={idx}>

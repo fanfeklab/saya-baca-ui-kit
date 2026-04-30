@@ -49,7 +49,7 @@ export function DevNavigator() {
         <Wrench className="h-6 w-6" />
       </SheetTrigger>
       <SheetContent side="right" className="w-[300px] sm:w-[400px] z-[10000] flex flex-col p-0 border-l-4 border-black">
-        <SheetHeader className="p-6 border-b-2 border-border bg-muted/50">
+        <SheetHeader className="p-6 border-b-2 border-border bg-muted/50 shrink-0">
           <SheetTitle className="flex items-center gap-2">
             <TerminalSquare className="w-5 h-5" />
             Developer Tools
@@ -59,8 +59,8 @@ export function DevNavigator() {
           </p>
         </SheetHeader>
         
-        <div className="flex-1 overflow-y-auto p-6">
-          <div className="space-y-6">
+        <ScrollArea className="flex-1 min-h-0">
+          <div className="p-6 space-y-6">
             
             {/* Quick Navigation */}
             <div>
@@ -112,7 +112,7 @@ export function DevNavigator() {
             </div>
 
           </div>
-        </div>
+        </ScrollArea>
       </SheetContent>
     </Sheet>
   );
