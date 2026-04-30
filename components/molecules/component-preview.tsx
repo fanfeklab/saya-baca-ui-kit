@@ -34,30 +34,30 @@ export function ComponentPreview({ title, description, code, children, centered 
         </div>
       )}
       <Tabs defaultValue="preview" className="relative w-full">
-        <TabsList className="w-full justify-start rounded-none border-b-4 border-black bg-transparent p-0 mb-4 h-12">
+        <TabsList className="w-full max-w-[400px] flex rounded-2xl border-4 border-border bg-muted p-1 mb-6">
           <TabsTrigger 
             value="preview" 
-            className="relative h-12 rounded-t-md border-x-4 border-t-4 border-transparent bg-transparent px-6 pb-3 pt-3 font-bold text-muted-foreground shadow-none transition-all data-[state=active]:border-black data-[state=active]:bg-white data-[state=active]:text-foreground data-[state=active]:shadow-none data-[state=active]:-mb-1 z-10"
+            className="flex-1 inline-flex items-center justify-center whitespace-nowrap rounded-xl px-4 py-2.5 font-bold transition-all data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:border-2 data-[state=active]:border-border data-[state=active]:shadow-neo-sm text-sm"
           >
             Preview
           </TabsTrigger>
           <TabsTrigger 
             value="code" 
-            className="relative h-12 rounded-t-md border-x-4 border-t-4 border-transparent bg-transparent px-6 pb-3 pt-3 font-bold text-muted-foreground shadow-none transition-all data-[state=active]:border-black data-[state=active]:bg-white data-[state=active]:text-foreground data-[state=active]:shadow-none data-[state=active]:-mb-1 z-10"
+            className="flex-1 inline-flex items-center justify-center whitespace-nowrap rounded-xl px-4 py-2.5 font-bold transition-all data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:border-2 data-[state=active]:border-border data-[state=active]:shadow-neo-sm text-sm"
           >
             Code
           </TabsTrigger>
         </TabsList>
-        <TabsContent value="preview" className="pt-2 outline-none">
-          <div className={`min-h-[350px] w-full rounded-xl border-4 border-black bg-white shadow-neo p-10 flex ${centered ? 'items-center justify-center' : 'items-start justify-start'} overflow-hidden relative`}>
-             <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03] bg-[linear-gradient(to_right,#000_1px,transparent_1px),linear-gradient(to_bottom,#000_1px,transparent_1px)] bg-[size:16px_16px]" />
-             <div className="w-full h-full flex flex-col gap-6 items-center justify-center relative z-10">
+        <TabsContent value="preview" className="mt-0 outline-none">
+          <div className="min-h-[350px] w-full rounded-3xl border-4 border-border bg-card shadow-neo p-10 flex flex-col overflow-hidden relative group">
+             <div className="absolute inset-0 z-0 pointer-events-none opacity-5 dark:opacity-10 bg-[linear-gradient(to_right,#000_1px,transparent_1px),linear-gradient(to_bottom,#000_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] bg-[size:16px_16px]" />
+             <div className={`w-full h-full flex flex-col gap-6 flex-1 z-10 ${centered ? 'items-center justify-center' : 'items-start justify-start'}`}>
                 {children}
              </div>
           </div>
         </TabsContent>
-        <TabsContent value="code" className="pt-2 outline-none relative">
-          <div className="rounded-xl overflow-hidden border-4 border-black bg-[#1f2937] shadow-neo flex flex-col">
+        <TabsContent value="code" className="mt-0 outline-none relative">
+          <div className="rounded-3xl overflow-hidden border-4 border-border bg-[#1f2937] shadow-neo flex flex-col">
             {/* Mac OS Window Header */}
             <div className="flex items-center justify-between px-4 py-3 bg-[#111827] border-b border-gray-800">
                <div className="flex gap-2">

@@ -5,33 +5,32 @@ import { Button } from '@/components/ui/button';
 import { Menu, Search } from 'lucide-react';
 import { ThemeToggle } from '@/components/atoms/theme-toggle';
 import { Input } from '@/components/ui/input';
+import { DocsBreadcrumbs } from '@/components/molecules/docs-breadcrumbs';
 
 export default function DemoLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex h-screen overflow-hidden bg-[#fafafa]">
+    <div className="flex h-screen overflow-hidden bg-background">
       {/* Decorative Neo-Brutal Background Pattern */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03] bg-[linear-gradient(to_right,#000_1px,transparent_1px),linear-gradient(to_bottom,#000_1px,transparent_1px)] bg-[size:32px_32px]" />
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-5 dark:opacity-10 bg-[linear-gradient(to_right,#000_1px,transparent_1px),linear-gradient(to_bottom,#000_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] bg-[size:32px_32px]" />
       
       {/* Desktop Sidebar */}
-      <div className="hidden md:flex w-64 flex-col border-r-4 border-black bg-white z-10 shrink-0 h-full relative">
+      <div className="hidden md:flex w-64 flex-col border-r-4 border-border bg-card z-10 shrink-0 h-full relative">
         <DemoSidebar />
       </div>
       
       {/* Main Content Area */}
       <main className="flex-1 flex flex-col min-w-0 h-full overflow-hidden relative z-10 bg-transparent">
         {/* Top Navbar */}
-        <header className="flex items-center justify-between p-4 border-b-4 border-black bg-white shadow-sm z-20">
+        <header className="flex items-center justify-between p-4 px-6 border-b-4 border-border bg-card shadow-sm z-20 h-[72px]">
            <div className="flex items-center gap-4 flex-1">
              <div className="md:hidden">
                <Sheet>
-                  <SheetTrigger 
-                    render={
-                      <Button variant="outline" size="icon" className="shrink-0 border-2">
+                  <SheetTrigger render={
+                      <Button variant="outline" size="icon" className="shrink-0 shadow-neo-sm hover:shadow-neo hover:-translate-x-0.5 hover:-translate-y-0.5">
                          <Menu className="w-5 h-5" />
                          <span className="sr-only">Toggle navigation menu</span>
                       </Button>
-                    } 
-                  />
+                  } />
                   <SheetContent side="left" className="p-0 w-72">
                      <SheetTitle className="sr-only">Navigasi Dokumentasi</SheetTitle>
                      <DemoSidebar />
@@ -52,8 +51,9 @@ export default function DemoLayout({ children }: { children: React.ReactNode }) 
            </div>
         </header>
 
-        <ScrollArea className="flex-1 min-h-0 bg-[#fafafa]/50">
+        <ScrollArea className="flex-1 min-h-0 bg-background/50">
           <div className="container mx-auto max-w-5xl p-6 md:p-10 lg:p-12 relative z-10">
+            <DocsBreadcrumbs />
             {children}
           </div>
         </ScrollArea>

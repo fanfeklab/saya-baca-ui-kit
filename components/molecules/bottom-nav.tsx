@@ -6,20 +6,46 @@ import { Home, User, Gamepad2, Award } from "lucide-react";
 import { IconButton } from "@/components/atoms/icon-button";
 import { cn } from "@/lib/utils";
 
-const NAV_ITEMS = [
+export interface BottomNavItem {
+  name: string;
+  path: string;
+  icon: React.ElementType;
+}
+
+const DEFAULT_NAV_ITEMS: BottomNavItem[] = [
   { name: "Beranda", path: "/home", icon: Home },
-  { name: "Game", path: "/game/membaca", icon: Gamepad2 },
+  { name: "Game", path: "/game", icon: Gamepad2 },
   { name: "Prestasi", path: "/prestasi", icon: Award },
-  { name: "Orang Tua", path: "/parent", icon: User },
+  { name: "Profil", path: "/profile", icon: User },
 ];
 
-export function BottomNav() {
+export interface BottomNavProps {
+  className?: string;
+  items?: BottomNavItem[];
+  variant?: "default" | "floating" | "dock";
+}
+
+export function BottomNav({ className, items = DEFAULT_NAV_ITEMS, variant = "default" }: BottomNavProps) {
   const pathname = usePathname();
 
+  // Root container styles based on variant
+  const containerStyle = {
+    default: "fixed bottom-6 left-0 right-0 z-50 flex justify-center px-4",
+    floating: "fixed bottom-8 left-0 right-0 z-50 flex justify-center px-4",
+    dock: "fixed bottom-0 left-0 right-0 z-50 flex justify-center w-full",
+  };
+
+  // Inner nav styles based on variant
+  const navStyle = {
+    default: "flex items-center justify-around w-full max-w-md bg-card border-4 border-border rounded-2xl shadow-neo p-2",
+    floating: "flex items-center justify-around w-full max-w-xs bg-secondary border-4 border-border rounded-full shadow-[6px_6px_0_0_var(--color-border)] p-2",
+    dock: "flex items-center justify-around w-full bg-card border-t-4 border-border p-2 pb-safe", // Note: pb-safe would be for iOS safe area
+  };
+
   return (
-    <div className="fixed bottom-6 left-0 right-0 z-50 flex justify-center px-4">
-      <nav className="flex items-center justify-around w-full max-w-md bg-white dark:bg-card border-2 border-border rounded-2xl shadow-[4px_4px_0_0_#000000] p-2">
-        {NAV_ITEMS.map((item) => {
+    <div className={cn(containerStyle[variant], className)}>
+      <nav className={navStyle[variant]}>
+        {items.map((item) => {
           const Icon = item.icon;
           const isActive = pathname === item.path || pathname?.startsWith(item.path + '/');
           
@@ -28,12 +54,15 @@ export function BottomNav() {
               <IconButton 
                 variant="ghost" 
                 className={cn(
-                  "flex flex-col h-14 w-16 gap-1 !shadow-none hover:bg-transparent transition-colors",
-                  isActive ? "text-primary" : "text-muted-foreground"
+                  "flex flex-col gap-1 transition-all !shadow-none border-0",
+                  variant === "floating" ? "h-14 w-14 rounded-full" : "h-14 w-16 rounded-xl",
+                  isActive ? "text-primary bg-primary/10" : "text-muted-foreground hover:bg-muted/50"
                 )}
               >
                 <Icon className={cn("w-6 h-6 stroke-2", isActive && "fill-primary/20")} />
-                <span className="text-[10px] font-bold">{item.name}</span>
+                {variant !== "floating" && (
+                  <span className="text-[10px] font-black tracking-wider">{item.name}</span>
+                )}
               </IconButton>
             </Link>
           )

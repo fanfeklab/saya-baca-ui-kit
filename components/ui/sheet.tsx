@@ -61,17 +61,9 @@ function SheetContent({
         {children}
         {showCloseButton && (
           <SheetPrimitive.Close
-            data-slot="sheet-close"
-            render={
-              <Button
-                variant="ghost"
-                className="absolute top-3 right-3"
-                size="icon-sm"
-              />
-            }
+            className="absolute right-4 top-4 rounded-xl border-2 border-border shadow-neo opacity-100 hover:opacity-100 bg-card z-50 h-10 w-10 flex items-center justify-center hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[4px_4px_0_0_var(--color-border)] transition-all active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
           >
-            <XIcon
-            />
+            <XIcon className="h-5 w-5" />
             <span className="sr-only">Close</span>
           </SheetPrimitive.Close>
         )}

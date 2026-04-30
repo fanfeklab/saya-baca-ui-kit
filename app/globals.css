@@ -15,10 +15,14 @@
   --color-bg-dark: #1E2B4D;
 
   --color-border-neo-light: #000000;
-  --color-border-neo-dark: #000000;
+  --color-border-neo-dark: #FFFFFF;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --shadow-neo: 4px 4px 0 0 var(--color-border);
+  --shadow-neo-lg: 8px 8px 0 0 var(--color-border);
+  --shadow-neo-sm: 2px 2px 0 0 var(--color-border);
 
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);

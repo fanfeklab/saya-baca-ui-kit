@@ -133,6 +133,28 @@ export default function ButtonsDemoPage() {
         </ConfettiBurst>
       </ComponentPreview>
 
+      <ComponentPreview
+        title="Button Group"
+        description="Grup aksi yang saling berhubungan."
+        code={`<div className="inline-flex rounded-xl shadow-neo border-2 border-border overflow-hidden">
+  <Button className="rounded-none border-0 border-r-2 shadow-none hover:shadow-none hover:translate-x-0 hover:translate-y-0 active:translate-x-0 active:translate-y-0 active:bg-muted">
+    Kiri
+  </Button>
+  <Button className="rounded-none border-0 border-r-2 shadow-none hover:shadow-none hover:translate-x-0 hover:translate-y-0 active:translate-x-0 active:translate-y-0 active:bg-muted">
+    Tengah
+  </Button>
+  <Button className="rounded-none border-0 shadow-none hover:shadow-none hover:translate-x-0 hover:translate-y-0 active:translate-x-0 active:translate-y-0 active:bg-muted">
+    Kanan
+  </Button>
+</div>`}
+      >
+        <div className="inline-flex rounded-xl shadow-neo border-2 border-border overflow-hidden">
+          <Button variant="outline" className="rounded-none border-0 border-r-2 shadow-none hover:shadow-none hover:translate-x-0 hover:translate-y-0 active:translate-x-0 active:translate-y-0 active:bg-muted">Kiri</Button>
+          <Button variant="outline" className="rounded-none border-0 border-r-2 shadow-none hover:shadow-none hover:translate-x-0 hover:translate-y-0 active:translate-x-0 active:translate-y-0 active:bg-muted">Tengah</Button>
+          <Button variant="outline" className="rounded-none border-0 shadow-none hover:shadow-none hover:translate-x-0 hover:translate-y-0 active:translate-x-0 active:translate-y-0 active:bg-muted">Kanan</Button>
+        </div>
+      </ComponentPreview>
+
       <div className="pt-8">
         <NeoText variant="subtitle">Props Reference</NeoText>
         <PropsTable props={[

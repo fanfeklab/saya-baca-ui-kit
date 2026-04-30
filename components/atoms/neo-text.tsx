@@ -8,8 +8,12 @@ interface NeoTextProps extends React.HTMLAttributes<HTMLHeadingElement | HTMLSpa
 }
 
 export const NeoText = React.forwardRef<HTMLElement, NeoTextProps>(
-  ({ className, as: Component = "span", variant = "body", stroke = false, children, ...props }, ref) => {
+  ({ className, as, variant = "body", stroke = false, children, ...props }, ref) => {
     
+    // Determine default tag based on variant
+    const defaultTag = variant === "title" ? "h1" : variant === "subtitle" ? "h2" : "p";
+    const Component = as || defaultTag;
+
     const baseClasses = cn(
       "font-bold tracking-tight",
       {
