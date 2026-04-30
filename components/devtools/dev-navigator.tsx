@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
 import { useAppStore } from "@/lib/store";
-import { stringify } from 'flatted';
 
 const ROUTES = [
   { group: "Marketing", items: [
@@ -103,50 +102,9 @@ export function DevNavigator() {
               </div>
             </div>
 
-            {/* State & Context Visualizer */}
-            <div className="pt-4 border-t-2 border-border mt-4 pb-12">
-               <h3 className="font-bold text-sm mb-3 flex items-center gap-2">
-                <Database className="w-4 h-4" /> State & Context 
-              </h3>
-              
-              <StoreVisualizer />
-            </div>
-
           </div>
         </ScrollArea>
       </SheetContent>
     </Sheet>
-  );
-}
-
-function StoreVisualizer() {
-  const { user, dailyMission, settings, toggleSound, toggleAnimation } = useAppStore();
-  return (
-    <div className="space-y-3">
-      <div className="flex items-center justify-between p-2 rounded-lg border-2 border-border bg-card">
-        <div className="text-sm font-bold">Animasi Transisi</div>
-        <Button variant="ghost" size="sm" onClick={toggleAnimation} className="h-6 px-1">
-          <Badge variant={settings.animations ? "success" : "destructive"} className="shadow-none">
-            {settings.animations ? "Aktif" : "Nonaktif"}
-          </Badge>
-        </Button>
-      </div>
-
-      <div className="flex items-center justify-between p-2 rounded-lg border-2 border-border bg-card">
-        <div className="text-sm font-bold">Sound Effect</div>
-        <Button variant="ghost" size="sm" onClick={toggleSound} className="h-6 px-1">
-          <Badge variant={settings.soundEffects ? "success" : "destructive"} className="shadow-none">
-            {settings.soundEffects ? "Aktif" : "Nonaktif"}
-          </Badge>
-        </Button>
-      </div>
-
-      <div className="p-3 border-2 border-dashed border-border rounded-lg bg-muted flex flex-col gap-2">
-        <div className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Current User Mock</div>
-        <pre className="text-[10px] sm:text-xs overflow-x-auto font-mono bg-black text-green-400 p-2 rounded-md">
-{stringify({ user, dailyMission }, null, 2)}
-        </pre>
-      </div>
-    </div>
   );
 }

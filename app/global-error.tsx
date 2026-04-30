@@ -24,7 +24,7 @@ export default function GlobalError({
           <div className="w-20 h-20 bg-destructive/10 text-destructive rounded-full flex items-center justify-center mb-6">
             <AlertTriangle className="w-10 h-10" />
           </div>
-          <NeoText variant="h2" className="mb-2">Aplikasi Mengalami Kendala</NeoText>
+          <NeoText variant="title" className="mb-2">Aplikasi Mengalami Kendala</NeoText>
           <NeoText variant="body" className="text-muted-foreground max-w-md mb-8">
             Terjadi kesalahan teknis yang tidak terduga. Kami telah mencatat insiden ini untuk segera diperbaiki.
           </NeoText>

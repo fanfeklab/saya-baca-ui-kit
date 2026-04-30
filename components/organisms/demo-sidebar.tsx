@@ -54,24 +54,24 @@ export function DemoSidebar() {
   const pathname = usePathname();
 
   return (
-    <div className="flex flex-col h-full bg-card overflow-hidden">
-      <div className="p-4 border-b-2 border-border flex items-center justify-between shrink-0">
-        <div className="flex items-center gap-2">
-           <Link href="/" className="hover:opacity-80 transition-opacity">
+    <div className="flex flex-col h-full bg-white overflow-hidden">
+      <div className="p-6 border-b-4 border-black flex items-center justify-between shrink-0 bg-[#facc15]">
+        <div className="flex items-center gap-3">
+           <Link href="/" className="hover:scale-110 active:scale-95 transition-transform bg-white border-2 border-black p-2 rounded-lg shadow-neo">
               <Home className="w-5 h-5" />
            </Link>
-           <NeoText variant="subtitle" className="text-xl">UI Docs</NeoText>
+           <NeoText variant="subtitle" className="text-xl font-black">UI Docs</NeoText>
         </div>
       </div>
       
       <ScrollArea className="flex-1 min-h-0">
-        <div className="p-4 space-y-6">
+        <div className="p-6 space-y-8">
           {DEMO_ROUTES.map((group, idx) => (
             <div key={idx}>
-              <h4 className="font-bold text-sm mb-2 text-muted-foreground uppercase tracking-wider">
+              <h4 className="font-black text-sm mb-3 text-black/60 uppercase tracking-wider">
                 {group.title}
               </h4>
-              <div className="flex flex-col space-y-1">
+              <div className="flex flex-col space-y-2">
                 {group.links.map((link) => {
                   const isActive = pathname === link.href;
                   return (
@@ -79,10 +79,10 @@ export function DemoSidebar() {
                       key={link.href}
                       href={link.href}
                       className={cn(
-                        "px-3 py-2 rounded-xl text-sm font-medium border-2 transition-all duration-200",
+                        "px-4 py-2.5 rounded-xl text-sm font-bold border-2 transition-all duration-200",
                         isActive 
-                          ? "bg-primary text-primary-foreground border-border shadow-[2px_2px_0_0_#000000]" 
-                          : "bg-transparent border-transparent hover:bg-muted hover:border-border"
+                          ? "bg-primary text-black border-black shadow-neo translate-x-1" 
+                          : "bg-transparent border-transparent hover:bg-muted/50 hover:border-black/20 text-muted-foreground hover:text-black"
                       )}
                     >
                       {link.label}
