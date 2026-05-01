@@ -51,7 +51,7 @@ export default function HomeAppPage() {
             <NeoText variant="subtitle" stroke className="text-3xl leading-none">DUNIA IMAJINASI</NeoText>
           </div>
         </div>
-        <div className="bg-card/40 backdrop-blur-sm p-4 rounded-3xl border-2 border-dashed border-border/40">
+        <div className="bg-card p-4 rounded-3xl border-2 border-dashed border-border">
           <StoryCard 
             title="Singa yang Pemberani"
             description="Belajar tentang keberanian di hutan rimba bersama Raja Hutan."

@@ -6,7 +6,7 @@ import { NeoText } from '@/components/atoms/neo-text';
 import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
-import { Plus, Trash2, UserCircle2, ArrowRight } from 'lucide-react';
+import { Plus, Trash2, UserCircle2, ArrowRight, Dice5 } from 'lucide-react';
 import {
   Dialog,
   DialogContent,
@@ -27,23 +27,34 @@ interface ChildProfile {
 }
 
 const INITIAL_PROFILES: ChildProfile[] = [
-  { id: '1', name: 'Budi Purnama', avatar: 'Felix', level: 5 },
-  { id: '2', name: 'Ani', avatar: 'Sasha', level: 2 },
-  { id: '3', name: 'Iwan', avatar: 'Iwan', level: 3 },
+  { id: '1', name: 'Budi Purnama', avatar: 'adventurer/svg?seed=Felix', level: 5 },
+  { id: '2', name: 'Ani', avatar: 'adventurer/svg?seed=Sasha', level: 2 },
+  { id: '3', name: 'Iwan', avatar: 'adventurer/svg?seed=Iwan', level: 3 },
 ];
 
 export default function SelectProfilePage() {
   const router = useRouter();
   const [profiles, setProfiles] = useState<ChildProfile[]>(INITIAL_PROFILES);
   const [newProfileName, setNewProfileName] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
+  const [selectedAvatar, setSelectedAvatar] = useState('Felix');
+  const [avatarStyle, setAvatarStyle] = useState('adventurer');
+
+  const AVATAR_STYLES = ['adventurer', 'notionists', 'pixel-art', 'open-peeps', 'big-smile'];
+
+  const randomizeAvatar = () => {
+    const randomSeeds = ['Felix', 'Sasha', 'Iwan', 'Luna', 'Kiki', 'Milo', 'Zora', 'Bayo'];
+    const newSeed = randomSeeds[Math.floor(Math.random() * randomSeeds.length)];
+    const newStyle = AVATAR_STYLES[Math.floor(Math.random() * AVATAR_STYLES.length)];
+    setSelectedAvatar(newSeed + Math.floor(Math.random() * 100));
+    setAvatarStyle(newStyle);
+  };
 
   const handleAddProfile = () => {
     if (!newProfileName) return;
     const newProfile: ChildProfile = {
       id: Date.now().toString(),
       name: newProfileName,
-      avatar: `avatar-${profiles.length + 1}`,
+      avatar: `${avatarStyle}/svg?seed=${selectedAvatar}`,
       level: 1,
     };
     setProfiles([...profiles, newProfile]);
@@ -83,7 +94,7 @@ export default function SelectProfilePage() {
                 "border-4 border-border shadow-neo-sm bg-background transition-transform group-hover:scale-110",
                 index === 0 ? "size-32 md:size-48" : "size-16 md:size-24"
               )}>
-                <AvatarImage src={`https://api.dicebear.com/7.x/adventurer/svg?seed=${profile.avatar}`} />
+                <AvatarImage src={`https://api.dicebear.com/7.x/${profile.avatar}`} />
                 <AvatarFallback>Kid</AvatarFallback>
               </Avatar>
               
@@ -119,14 +130,33 @@ export default function SelectProfilePage() {
               <NeoText variant="body" className="font-black uppercase tracking-tighter text-muted-foreground group-hover:text-primary">Tambah Anak</NeoText>
             </Card>
           </DialogTrigger>
-          <DialogContent className="sm:max-w-md border-4 shadow-neo">
+          <DialogContent className="sm:max-w-md border-4 shadow-neo bg-card">
             <DialogHeader>
               <DialogTitle className="text-2xl font-black uppercase tracking-tighter">Profil Baru</DialogTitle>
               <DialogDescription className="font-medium">
                 Tambahkan profil untuk jagoan kecilmu.
               </DialogDescription>
             </DialogHeader>
-            <div className="py-4">
+            <div className="py-6 space-y-6">
+              <div className="flex flex-col items-center gap-4">
+                <div className="relative group">
+                  <Avatar className="size-32 border-4 border-border shadow-neo bg-background transition-transform">
+                    <AvatarImage src={`https://api.dicebear.com/7.x/${avatarStyle}/svg?seed=${selectedAvatar}`} />
+                    <AvatarFallback>Kid</AvatarFallback>
+                  </Avatar>
+                  <Button 
+                    variant="secondary" 
+                    size="icon" 
+                    type="button"
+                    onClick={randomizeAvatar}
+                    className="absolute -bottom-2 -right-2 rounded-xl border-2 shadow-neo-sm hover:shadow-neo active:shadow-none bg-background"
+                  >
+                    <Dice5 className="size-5" />
+                  </Button>
+                </div>
+                <NeoText variant="body" className="text-[10px] uppercase font-black tracking-widest text-muted-foreground">Sentuh Dadu untuk Random Avatar</NeoText>
+              </div>
+
               <FormField 
                 label="Nama Panggilan" 
                 placeholder="Contoh: Budi" 

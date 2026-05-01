@@ -4,7 +4,7 @@ import React from "react";
 import { NeoText } from "@/components/atoms/neo-text";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Play, RotateCcw } from "lucide-react";
+import { ArrowLeft, Play, RotateCcw, Gift, Sparkles, Trophy } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { GameHeader } from "@/components/molecules/game-header";
 import { IllustrationHolder } from "@/components/atoms/illustration-holder";
@@ -50,8 +50,8 @@ export default function MembacaGamePage() {
         <NeoText variant="body" className="font-medium">Kamu telah berhasil mengeja semua kata dengan sangat baik hari ini!</NeoText>
         
         <div className="flex flex-col gap-4 w-full mt-8">
-          <Button variant="default" className="w-full h-16 text-xl font-black uppercase tracking-widest shadow-neo hover:shadow-neo-lg active:shadow-none transition-all" onClick={() => router.push("/home")}>
-            Terima Hadiah 🎁
+          <Button variant="default" className="w-full h-16 text-xl font-black uppercase tracking-widest shadow-neo hover:shadow-neo-lg active:shadow-none transition-all text-black" onClick={() => router.push("/home")}>
+            Terima Hadiah <Gift className="ml-2 size-6 text-black" />
           </Button>
           <Button variant="ghost" className="w-full text-foreground/60 font-black uppercase tracking-tight text-xs" onClick={handleReset}>
             <RotateCcw className="w-4 h-4 mr-2" /> Ulangi Petualangan
@@ -76,7 +76,7 @@ export default function MembacaGamePage() {
           <div className="relative group">
             <IllustrationHolder variant="primary" size="xl" emoji={currentLevel.image} className="w-48 h-48 text-[120px] shadow-neo bg-background border-4 group-hover:rotate-3 transition-transform" />
             <div className="absolute -bottom-4 -right-4 bg-secondary text-secondary-foreground p-3 rounded-2xl border-2 border-border shadow-neo-sm">
-              <span className="text-2xl animate-pulse">✨</span>
+              <Sparkles className="size-8 text-black animate-pulse" />
             </div>
           </div>
           

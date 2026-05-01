@@ -37,8 +37,8 @@ export function BottomNav({ className, items = DEFAULT_NAV_ITEMS, variant = "def
 
   // Inner nav styles based on variant
   const navStyle = {
-    default: "flex items-center justify-around w-full max-w-md bg-card/90 backdrop-blur-md border-2 border-border rounded-2xl shadow-neo p-1.5",
-    floating: "flex items-center justify-around w-full max-w-xs bg-secondary/90 backdrop-blur-md border-2 border-border rounded-full shadow-neo p-1.5",
+    default: "flex items-center justify-around w-full max-w-md bg-card border-2 border-border rounded-2xl shadow-neo p-1",
+    floating: "flex items-center justify-around w-full max-w-xs bg-card border-2 border-border rounded-full shadow-neo p-1",
     dock: "flex items-center justify-around w-full bg-card border-t-2 border-border p-2 pb-safe",
   };
 
@@ -54,14 +54,14 @@ export function BottomNav({ className, items = DEFAULT_NAV_ITEMS, variant = "def
               <IconButton 
                 variant="ghost" 
                 className={cn(
-                  "flex flex-col gap-0.5 transition-all !shadow-none border-0",
-                  variant === "floating" ? "h-12 w-12 rounded-full" : "h-12 w-16 rounded-xl",
-                  isActive ? "text-primary bg-primary/10" : "text-muted-foreground hover:bg-muted/30"
+                  "flex flex-col gap-0 transition-all !shadow-none border-0",
+                  variant === "floating" ? "h-10 w-10 rounded-full" : "h-11 w-16 rounded-xl",
+                  isActive ? "text-primary bg-primary/10" : "text-muted-foreground hover:bg-muted/20"
                 )}
               >
-                <Icon className={cn("w-6 h-6 stroke-2", isActive && "fill-primary/20")} />
+                <Icon className={cn("w-5 h-5 stroke-[2.5px]", isActive && "fill-primary/10")} />
                 {variant !== "floating" && (
-                  <span className="text-[10px] font-black tracking-wider">{item.name}</span>
+                  <span className="text-[9px] font-black tracking-widest uppercase mt-0.5">{item.name}</span>
                 )}
               </IconButton>
             </Link>

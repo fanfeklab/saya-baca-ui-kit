@@ -2,78 +2,56 @@
 
 import * as React from "react";
 import { motion } from "motion/react";
-import { Star, Smile, Music, Heart, Sun, Cloud, Moon, Zap, Gamepad2, Puzzle } from "lucide-react";
+import { Star, Smile, Music, Heart, Sun, Cloud, Gamepad2, Puzzle } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export function BackgroundOrchestra() {
+  // Floating Animated Icons for the kids app vibe
+  const ICONS = [
+    { Icon: Star, color: "text-secondary", size: "w-12 h-12", left: "5%", delay: 0, duration: 45, blur: "blur-[2px]" },
+    { Icon: Smile, color: "text-primary", size: "w-24 h-24", left: "15%", delay: 5, duration: 60, blur: "blur-[4px]" },
+    { Icon: Music, color: "text-accent", size: "w-8 h-8", left: "30%", delay: 2, duration: 50, blur: "blur-[1px]" },
+    { Icon: Gamepad2, color: "text-success", size: "w-20 h-20", left: "50%", delay: 10, duration: 75, blur: "blur-[6px]" },
+    { Icon: Puzzle, color: "text-destructive", size: "w-10 h-10", left: "65%", delay: 3, duration: 55, blur: "blur-none" },
+    { Icon: Cloud, color: "text-primary", size: "w-32 h-32", left: "80%", delay: 7, duration: 80, blur: "blur-[10px]" },
+    { Icon: Sun, color: "text-secondary", size: "w-16 h-16", left: "90%", delay: 1, duration: 65, blur: "blur-[3px]" },
+    { Icon: Heart, color: "text-destructive", size: "w-6 h-6", left: "40%", delay: 8, duration: 40, blur: "blur-none" },
+  ];
+
   return (
     <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none bg-background">
-      {/* Small Grid Pattern - slowly moving diagonally */}
-      <motion.div 
-        className="absolute inset-[-100%] opacity-10 dark:opacity-30"
+      {/* Background Grid Pattern */}
+      <div 
+        className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]"
         style={{
           backgroundImage: `linear-gradient(to right, var(--color-border) 1px, transparent 1px), linear-gradient(to bottom, var(--color-border) 1px, transparent 1px)`,
-          backgroundSize: '32px 32px'
-        }}
-        animate={{
-          y: [0, 64],
-          x: [0, 64]
-        }}
-        transition={{
-          repeat: Infinity,
-          ease: "linear",
-          duration: 4
+          backgroundSize: '40px 40px'
         }}
       />
       
-      {/* Floating Animated Icons for the kids app vibe */}
-      <div className="absolute inset-0 overflow-hidden opacity-50 dark:opacity-40">
-        <motion.div
-          animate={{ y: ['-10vh', '110vh'], rotate: [0, -180] }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear", delay: 0 }}
-          className="absolute left-[10%]"
-        >
-          <Star className="w-12 h-12 text-secondary dark:text-secondary-foreground" strokeWidth={2} />
-        </motion.div>
-
-        <motion.div
-          animate={{ y: ['110vh', '-10vh'], rotate: [0, 180] }}
-          transition={{ duration: 25, repeat: Infinity, ease: "linear", delay: 5 }}
-          className="absolute left-[25%]"
-        >
-          <Smile className="w-16 h-16 text-primary dark:text-primary" strokeWidth={2} />
-        </motion.div>
-
-        <motion.div
-          animate={{ y: ['-15vh', '115vh'], rotate: [-45, 45] }}
-          transition={{ duration: 35, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute left-[40%]"
-        >
-          <Music className="w-10 h-10 text-accent dark:text-accent" strokeWidth={2} />
-        </motion.div>
-
-        <motion.div
-          animate={{ y: ['120vh', '-20vh'], rotate: [0, -90] }}
-          transition={{ duration: 28, repeat: Infinity, ease: "linear", delay: 8 }}
-          className="absolute left-[55%]"
-        >
-          <Gamepad2 className="w-14 h-14 text-success dark:text-success" strokeWidth={2} />
-        </motion.div>
-
-        <motion.div
-          animate={{ y: ['-20vh', '120vh'], rotate: [0, 360] }}
-          transition={{ duration: 40, repeat: Infinity, ease: "linear", delay: 1 }}
-          className="absolute left-[70%]"
-        >
-          <Puzzle className="w-12 h-12 text-destructive dark:text-destructive" strokeWidth={2} />
-        </motion.div>
-
-        <motion.div
-          animate={{ y: ['110vh', '-10vh'], rotate: [0, -360], scale: [1, 1.2, 1] }}
-          transition={{ duration: 32, repeat: Infinity, ease: "linear", delay: 4 }}
-          className="absolute right-[10%]"
-        >
-          <Cloud className="w-16 h-16 text-primary dark:text-primary-foreground" strokeWidth={2} />
-        </motion.div>
+      {/* Space Floating Icons */}
+      <div className="absolute inset-0 overflow-hidden">
+        {ICONS.map((item, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ y: "110vh", x: "0vw" }}
+            animate={{ 
+              y: ["110vh", "-20vh"],
+              x: ["-2vw", "2vw", "-2vw"],
+              rotate: [0, 360],
+            }}
+            transition={{ 
+              duration: item.duration, 
+              repeat: Infinity, 
+              ease: "linear", 
+              delay: item.delay 
+            }}
+            className={cn("absolute opacity-20 dark:opacity-10 transition-all", item.blur)}
+            style={{ left: item.left }}
+          >
+            <item.Icon className={cn(item.size, item.color)} strokeWidth={1.5} />
+          </motion.div>
+        ))}
       </div>
     </div>
   );

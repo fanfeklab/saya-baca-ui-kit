@@ -15,14 +15,14 @@
   --color-bg-dark: #1E2B4D;
 
   --color-border-neo-light: #000000;
-  --color-border-neo-dark: #FFFFFF;
+  --color-border-neo-dark: #000000;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  --shadow-neo: 4px 4px 0 0 var(--color-border);
-  --shadow-neo-lg: 8px 8px 0 0 var(--color-border);
-  --shadow-neo-sm: 2px 2px 0 0 var(--color-border);
+  --shadow-neo: 4px 4px 0 0 #000000;
+  --shadow-neo-lg: 8px 8px 0 0 #000000;
+  --shadow-neo-sm: 2px 2px 0 0 #000000;
 
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
@@ -129,4 +129,28 @@
   body {
     @apply bg-background text-foreground antialiased font-sans;
   }
+}
+
+@keyframes float-space {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(10px, 15px) rotate(2deg); }
+  66% { transform: translate(-5px, 20px) rotate(-1deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.animate-float-space {
+  animation: float-space 25s ease-in-out infinite;
+}
+
+.blur-pulse {
+  animation: blur-pulse 15s ease-in-out infinite;
+}
+
+@keyframes blur-pulse {
+  0%, 100% { filter: blur(2px); opacity: 0.2; }
+  50% { filter: blur(8px); opacity: 0.1; }
+}
+
+.nav-blur-edge {
+  mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
 }

@@ -17,28 +17,28 @@ export function TopAppBar({
   avatarSeed = "Felix" 
 }: TopAppBarProps) {
   return (
-    <header className="sticky top-0 w-full z-40 px-6 py-3 backdrop-blur-md bg-background/60 flex items-center justify-between border-b border-border/50">
+    <header className="w-full flex items-center justify-between p-2 pl-3 bg-card border-2 border-border shadow-neo rounded-2xl">
       <div className="flex items-center gap-3">
-        <Avatar className="w-10 h-10 border-2 border-border shadow-neo-sm">
+        <Avatar className="w-9 h-9 border-2 border-border shadow-neo-sm bg-background">
           <AvatarImage src={`https://api.dicebear.com/7.x/adventurer/svg?seed=${avatarSeed}`} alt="Avatar Anak" />
           <AvatarFallback>KID</AvatarFallback>
         </Avatar>
-        <div className="flex flex-col">
-          <span className="font-black text-sm leading-tight uppercase tracking-tight">Halo, {userName}!</span>
-          <div className="flex items-center gap-1.5 mt-0.5">
-            <Badge variant="accent" className="text-[10px] px-1.5 py-0 h-4 shadow-none border-border font-black uppercase">
+        <div className="flex flex-col justify-center">
+          <span className="font-black text-[11px] leading-none uppercase tracking-tighter">Halo, {userName}!</span>
+          <div className="flex items-center gap-1.5 mt-1">
+            <Badge variant="accent" className="text-[9px] px-1.5 py-0 h-3.5 shadow-none border border-border font-black uppercase">
               Lv {level}
             </Badge>
           </div>
         </div>
       </div>
       
-      <div className="flex items-center gap-3">
-        <div className="flex items-center gap-1.5 px-3 py-1 bg-yellow-400 rounded-lg border-2 border-border shadow-neo-sm">
+      <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 h-9 px-3 bg-yellow-400 rounded-xl border-2 border-border shadow-neo-sm">
           <Star className="w-4 h-4 fill-black text-black stroke-black stroke-[3px]" />
           <span className="font-black text-xs text-black">{stars.toLocaleString('id-ID')}</span>
         </div>
-        <ThemeToggle />
+        <ThemeToggle className="h-9 w-9 border-2" />
       </div>
     </header>
   );
