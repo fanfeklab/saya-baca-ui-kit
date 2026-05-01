@@ -25,7 +25,7 @@ export default function TypographyDemoPage() {
           </div>
           <div className="relative z-10 transition-transform hover:translate-x-2">
             <NeoText variant="subtitle" className="text-3xl font-black">SUB-JUDUL KEREN</NeoText>
-            <p className="text-xs font-black uppercase tracking-tighter mt-4 text-secondary-foreground/60 border-l-4 border-black pl-3 ml-1">variant="subtitle" / .text-3xl</p>
+            <p className="text-xs font-black uppercase tracking-tighter mt-4 text-secondary-foreground/60 border-l-4 border-black pl-3 ml-1">variant=&quot;subtitle&quot; / .text-3xl</p>
           </div>
         </div>
       </section>
@@ -45,7 +45,7 @@ export default function TypographyDemoPage() {
 
           <div className="p-8 border-4 border-black shadow-neo rounded-2xl bg-accent text-accent-foreground">
             <NeoText variant="body" className="text-lg leading-relaxed font-bold italic">
-              "Kancil berlari sangat cepat melewati sungai yang jernih."
+              &quot;Kancil berlari sangat cepat melewati sungai yang jernih.&quot;
             </NeoText>
             <div className="mt-6 flex items-center gap-2">
               <div className="size-3 bg-white rounded-full border-2 border-black" />

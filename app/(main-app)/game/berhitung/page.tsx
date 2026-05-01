@@ -8,6 +8,7 @@ import { ArrowLeft, Check, X, RotateCcw } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { IllustrationHolder } from "@/components/atoms/illustration-holder";
 import { ConfettiBurst } from "@/components/atoms/confetti-burst";
+import { cn } from "@/lib/utils";
 
 const LEVELS = [
   { question: "1 + 1 = ?", answer: 2, options: [1, 2, 3, 4] },
@@ -88,41 +89,51 @@ export default function BerhitungGamePage() {
       </div>
 
       {/* Main Game Area */}
-      <Card className="mt-4 bg-background border-4 text-center overflow-hidden">
-        <CardContent className="p-8 pb-12 flex flex-col items-center gap-8">
-          
-          <NeoText variant="title" className="text-6xl md:text-8xl tracking-widest text-primary font-mono mb-4">
-            {currentLevel.question}
+      <Card className="mt-4 bg-secondary border-4 border-black shadow-neo-lg text-center overflow-hidden relative">
+        <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none scale-150 rotate-12">
+           <NeoText variant="title" className="text-9xl">123</NeoText>
+        </div>
+        <CardContent className="p-12 border-b-4 border-black bg-white flex flex-col items-center gap-8 relative z-10 transition-all hover:scale-[1.02]">
+          <NeoText variant="title" stroke className="text-7xl md:text-9xl tracking-[0.2em] text-primary mb-2 drop-shadow-lg">
+            {currentLevel.question.replace('= ?', '')}
           </NeoText>
-          
+          <div className="size-20 bg-accent rounded-full border-4 border-black shadow-neo-sm flex items-center justify-center">
+            <span className="text-4xl font-black">?</span>
+          </div>
         </CardContent>
+        <div className="p-4 bg-secondary-foreground/5 text-center">
+          <NeoText variant="body" className="text-xs font-black uppercase tracking-widest opacity-60">Selesaikan soal di atas!</NeoText>
+        </div>
       </Card>
 
       {/* Options Grid */}
-      <div className="grid grid-cols-2 gap-4 mt-2">
+      <div className="grid grid-cols-2 gap-6 mt-4">
         {currentLevel.options.map((option, idx) => {
           const isSelected = selectedAnswer === option;
           const isCorrect = option === currentLevel.answer;
-          let variant: "default" | "outline" | "success" | "destructive" = "outline";
+          let buttonStyles = "bg-white text-black border-black shadow-neo hover:shadow-neo-lg hover:-translate-y-1";
           
           if (isSelected) {
-            variant = isCorrect ? "success" : "destructive";
+            buttonStyles = isCorrect 
+              ? "bg-success text-success-foreground border-black shadow-none translate-y-1" 
+              : "bg-destructive text-destructive-foreground border-black shadow-none translate-y-1 shake";
           }
           
           return (
             <Button
               key={idx}
-              variant={variant}
-              className={`h-24 text-4xl font-bold font-mono border-4 shadow-[4px_4px_0_0_#000000] ${
-                isSelected && isCorrect ? "bg-success hover:bg-success text-success-foreground" : 
-                isSelected && !isCorrect ? "bg-destructive hover:bg-destructive text-destructive-foreground" : ""
-              }`}
+              className={cn(
+                "h-28 text-5xl font-black rounded-3xl border-4 transition-all duration-200",
+                buttonStyles
+              )}
               onClick={() => handleAnswer(option)}
               disabled={selectedAnswer !== null}
             >
-              {option}
-              {isSelected && isCorrect && <Check className="ml-2 w-8 h-8" />}
-              {isSelected && !isCorrect && <X className="ml-2 w-8 h-8" />}
+              <div className="relative">
+                {option}
+                {isSelected && isCorrect && <Check className="absolute -top-10 -right-8 w-10 h-10 text-white stroke-[4px]" />}
+                {isSelected && !isCorrect && <X className="absolute -top-10 -right-8 w-10 h-10 text-white stroke-[4px]" />}
+              </div>
             </Button>
           );
         })}

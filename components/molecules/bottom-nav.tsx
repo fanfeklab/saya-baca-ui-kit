@@ -54,12 +54,14 @@ export function BottomNav({ className, items = DEFAULT_NAV_ITEMS, variant = "def
               <IconButton 
                 variant="ghost" 
                 className={cn(
-                  "flex flex-col gap-0 transition-all !shadow-none border-0",
-                  variant === "floating" ? "h-10 w-10 rounded-full" : "h-11 w-16 rounded-xl",
-                  isActive ? "text-primary bg-primary/10" : "text-muted-foreground hover:bg-muted/20"
+                  "flex flex-col gap-0 transition-all border-2",
+                  variant === "floating" ? "h-12 w-12 rounded-full" : "h-14 w-16 rounded-xl",
+                  isActive 
+                    ? "bg-primary text-primary-foreground border-black shadow-neo -translate-y-1" 
+                    : "text-muted-foreground hover:bg-muted/50 border-transparent shadow-none hover:shadow-neo-sm hover:-translate-y-0.5"
                 )}
               >
-                <Icon className={cn("w-5 h-5 stroke-[2.5px]", isActive && "fill-primary/10")} />
+                <Icon className={cn("w-5 h-5 stroke-[2.5px]", isActive && "fill-white/20")} />
                 {variant !== "floating" && (
                   <span className="text-[9px] font-black tracking-widest uppercase mt-0.5">{item.name}</span>
                 )}

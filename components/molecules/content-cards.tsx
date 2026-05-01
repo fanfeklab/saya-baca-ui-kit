@@ -102,19 +102,22 @@ export interface StatCardProps {
 
 export function StatCard({ title, value, icon: Icon, trend, className }: StatCardProps) {
   return (
-    <Card className={cn("p-4", className)}>
-      <div className="flex items-center justify-between mb-4">
-        <NeoText variant="body" className="text-sm font-bold text-muted-foreground">{title}</NeoText>
-        {Icon && <Icon className="w-5 h-5 opacity-70" />}
+    <Card className={cn("p-6 bg-white border-4 border-black shadow-neo-sm relative overflow-hidden group", className)}>
+      <div className="absolute top-0 right-0 p-2 opacity-5 scale-150 rotate-12 group-hover:rotate-0 transition-transform duration-500">
+        {Icon && <Icon className="w-16 h-16" />}
       </div>
-      <div className="flex flex-col gap-1">
-        <NeoText variant="subtitle" className="text-3xl">{value}</NeoText>
+      <div className="flex items-center justify-between mb-4 relative z-10">
+        <NeoText variant="body" className="text-xs font-black uppercase tracking-tighter text-muted-foreground">{title}</NeoText>
+        {Icon && <Icon className="w-5 h-5 text-primary" strokeWidth={3} />}
+      </div>
+      <div className="flex flex-col gap-1 relative z-10">
+        <NeoText variant="subtitle" className="text-4xl leading-none">{value}</NeoText>
         {trend && (
-          <div className="flex items-center gap-2 mt-2">
-            <Badge variant={trend.positive ? "success" : "destructive"} className="px-1 py-0 h-5 text-[10px]">
+          <div className="flex items-center gap-2 mt-3">
+            <Badge variant={trend.positive ? "success" : "destructive"} className="px-2 py-0.5 h-6 text-[10px] font-black uppercase tracking-tighter border-2 border-black shadow-neo-sm">
               {trend.positive ? '+' : ''}{trend.value}%
             </Badge>
-            <span className="text-xs text-muted-foreground">{trend.label}</span>
+            <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/60">{trend.label}</span>
           </div>
         )}
       </div>

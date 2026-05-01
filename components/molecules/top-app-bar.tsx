@@ -34,11 +34,11 @@ export function TopAppBar({
       </div>
       
       <div className="flex items-center gap-2">
-        <div className="flex items-center gap-1.5 h-9 px-3 bg-yellow-400 rounded-xl border-2 border-border shadow-neo-sm">
+        <div className="flex items-center gap-1.5 h-9 px-3 bg-yellow-400 rounded-xl border-2 border-black shadow-neo-sm">
           <Star className="w-4 h-4 fill-black text-black stroke-black stroke-[3px]" />
           <span className="font-black text-xs text-black">{stars.toLocaleString('id-ID')}</span>
         </div>
-        <ThemeToggle className="h-9 w-9 border-2" />
+        <ThemeToggle className="h-9 w-9 border-2 border-black" />
       </div>
     </header>
   );

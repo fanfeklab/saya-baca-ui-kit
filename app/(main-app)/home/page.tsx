@@ -51,13 +51,14 @@ export default function HomeAppPage() {
             <NeoText variant="subtitle" stroke className="text-3xl leading-none">DUNIA IMAJINASI</NeoText>
           </div>
         </div>
-        <div className="bg-card p-4 rounded-3xl border-2 border-dashed border-border">
+        <div className="bg-secondary/30 p-4 rounded-3xl border-4 border-black shadow-neo-sm">
           <StoryCard 
             title="Singa yang Pemberani"
             description="Belajar tentang keberanian di hutan rimba bersama Raja Hutan."
             emoji="🦁"
+            onRead={() => {}}
             onListen={() => {}}
-            className="bg-background shadow-none border-border"
+            className="bg-white hover:scale-[1.02] active:scale-[0.98] transition-transform"
           />
         </div>
       </section>
