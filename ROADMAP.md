@@ -1,4 +1,4 @@
-# Project Roadmap: Neo-Edu App
+# Project Roadmap: Saya Baca App
 
 ## Current Phase: Stage 2 - UI Assembly & Polish
 
@@ -6,7 +6,7 @@
 - [x] Tech Stack: Next.js 15, Tailwind CSS, Motion.
 - [x] Atoms: NeoText, Buttons, Icons, Basic Shapes.
 - [x] Molecules: ContentCards, Navigation, FormFields.
-- [x] Design System: Neo-Edu visual language (Vibrant, Neo-Brutalism light).
+- [x] Design System: Saya Baca visual language (Vibrant, Neo-Brutalism light).
 - [x] DX Tools: Floating Navigator, Dev Panel.
 
 ### Phase 2: UI Assembly - Main App & Dashboard (CURRENT)

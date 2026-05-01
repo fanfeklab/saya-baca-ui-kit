@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Play, RotateCcw } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { GameHeader } from "@/components/molecules/game-header";
 import { IllustrationHolder } from "@/components/atoms/illustration-holder";
 import { AudioButton } from "@/components/atoms/audio-button";
 import { ConfettiBurst } from "@/components/atoms/confetti-burst";
@@ -38,20 +39,22 @@ export default function MembacaGamePage() {
 
   if (isWon) {
     return (
-      <div className="flex flex-col p-4 gap-6 animate-in fade-in slide-in-from-bottom-4 duration-500 pb-28 min-h-[70vh] items-center justify-center text-center">
+      <div className="flex flex-col p-8 gap-8 animate-in fade-in zoom-in duration-700 pb-32 min-h-[80vh] items-center justify-center text-center max-w-md mx-auto">
         <ConfettiBurst>
-          <IllustrationHolder variant="success" size="xl" emoji="🏆" className="mx-auto mb-6" />
+          <IllustrationHolder variant="success" size="xl" emoji="🏆" className="mx-auto mb-6 scale-125 border-4 shadow-neo-lg" />
         </ConfettiBurst>
-        <NeoText variant="title" className="text-3xl text-success">Hore! Selesai!</NeoText>
-        <NeoText variant="body" className="mb-6">Kamu pintar sekali membaca hari ini.</NeoText>
+        <div className="space-y-4">
+          <NeoText variant="title" stroke className="text-5xl text-success">Luar Biasa!</NeoText>
+          <NeoText variant="subtitle" className="text-muted-foreground uppercase tracking-widest text-sm font-black">Misi Membaca Selesai</NeoText>
+        </div>
+        <NeoText variant="body" className="font-medium">Kamu telah berhasil mengeja semua kata dengan sangat baik hari ini!</NeoText>
         
-        <div className="flex gap-4 w-full">
-          <Button variant="outline" className="flex-1" onClick={handleReset}>
-            <RotateCcw className="w-5 h-5 mr-2" />
-            Main Lagi
+        <div className="flex flex-col gap-4 w-full mt-8">
+          <Button variant="default" className="w-full h-16 text-xl font-black uppercase tracking-widest shadow-neo hover:shadow-neo-lg active:shadow-none transition-all" onClick={() => router.push("/home")}>
+            Terima Hadiah 🎁
           </Button>
-          <Button variant="default" className="flex-1" onClick={() => router.push("/home")}>
-            Selesai
+          <Button variant="ghost" className="w-full text-foreground/60 font-black uppercase tracking-tight text-xs" onClick={handleReset}>
+            <RotateCcw className="w-4 h-4 mr-2" /> Ulangi Petualangan
           </Button>
         </div>
       </div>
@@ -59,56 +62,54 @@ export default function MembacaGamePage() {
   }
 
   return (
-    <div className="flex flex-col p-4 gap-6 animate-in fade-in slide-in-from-bottom-4 duration-500 pb-28">
-      {/* Header */}
-      <div className="flex items-center gap-4">
-        <Button 
-          variant="outline" 
-          size="icon" 
-          onClick={() => router.back()}
-          className="rounded-full shadow-[2px_2px_0_0_#000000]"
-        >
-          <ArrowLeft className="w-5 h-5" />
-        </Button>
-        <div className="flex-1">
-          <NeoText variant="title">Mari Membaca</NeoText>
-        </div>
-        <div className="font-bold text-sm bg-accent/20 text-accent font-mono px-3 py-1 rounded-full border-2 border-accent">
-          {levelIndex + 1} / {LEVELS.length}
-        </div>
-      </div>
+    <div className="flex flex-col p-6 gap-8 animate-in fade-in slide-in-from-bottom-8 duration-700 pb-32 max-w-2xl mx-auto">
+      {/* Refined Game Header */}
+      <GameHeader 
+        title="DUNIA MEMBACA"
+        currentLevel={levelIndex + 1}
+        totalLevels={LEVELS.length}
+      />
 
-      {/* Main Game Area */}
-      <Card className="mt-8 bg-background border-4 text-center overflow-hidden">
-        <CardContent className="p-8 pb-12 flex flex-col items-center gap-8">
+      {/* Question Card */}
+      <Card className="mt-4 bg-card/60 backdrop-blur-sm border-2 shadow-neo-lg text-center overflow-visible">
+        <CardContent className="p-8 pb-14 flex flex-col items-center gap-10">
+          <div className="relative group">
+            <IllustrationHolder variant="primary" size="xl" emoji={currentLevel.image} className="w-48 h-48 text-[120px] shadow-neo bg-background border-4 group-hover:rotate-3 transition-transform" />
+            <div className="absolute -bottom-4 -right-4 bg-secondary text-secondary-foreground p-3 rounded-2xl border-2 border-border shadow-neo-sm">
+              <span className="text-2xl animate-pulse">✨</span>
+            </div>
+          </div>
           
-          <IllustrationHolder variant="primary" size="xl" emoji={currentLevel.image} className="w-40 h-40 text-8xl shadow-[4px_4px_0_0_#000000]" />
-          
-          <div className="space-y-4 w-full">
-            <NeoText variant="title" className="text-4xl md:text-5xl tracking-widest text-primary">
-              {currentLevel.word}
-            </NeoText>
+          <div className="space-y-6 w-full">
+            <div className="flex items-center justify-center gap-4 flex-wrap">
+              {currentLevel.word.split(" - ").map((letter, idx) => (
+                <div key={idx} className="size-16 bg-background rounded-2xl border-4 border-border shadow-neo flex items-center justify-center">
+                  <NeoText variant="title" className="text-3xl text-primary">{letter}</NeoText>
+                </div>
+              ))}
+            </div>
             
-            <AudioButton variant="secondary" className="w-full max-w-[200px] mx-auto mt-4 h-14 text-lg">
-              <Play className="w-5 h-5 mr-2 fill-current" />
-              Dengarkan
+            <AudioButton variant="secondary" className="w-full max-w-[240px] mx-auto mt-8 h-16 text-lg font-black uppercase tracking-widest border-2 shadow-neo active:shadow-none">
+              <Play className="w-6 h-6 mr-3 fill-current" />
+              Dengar Suara
             </AudioButton>
           </div>
-
         </CardContent>
       </Card>
 
-      {/* Controls */}
-      <div className="fixed bottom-24 left-0 right-0 px-4 max-w-lg mx-auto z-40">
+      {/* Main Action Button */}
+      <div className="fixed bottom-24 left-0 right-0 px-6 max-w-2xl mx-auto z-40 pointer-events-none">
          <Button 
             variant="default" 
-            className="w-full text-xl h-16 rounded-2xl border-4" 
+            className="w-full text-2xl h-20 rounded-2xl border-2 shadow-neo-lg hover:shadow-neo active:shadow-none active:translate-y-1 active:translate-x-1 transition-all uppercase font-black tracking-widest pointer-events-auto" 
             onClick={handleNext}
           >
-            Selanjutnya
+            Selesai & Lanjut
           </Button>
       </div>
 
+      {/* Decorative Floor */}
+      <div className="h-12" />
     </div>
   );
 }

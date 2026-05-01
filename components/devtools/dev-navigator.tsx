@@ -37,32 +37,33 @@ export function DevNavigator() {
   const [open, setOpen] = React.useState(false);
   const { theme, setTheme } = useTheme();
 
-  // Cek apakah di demo main app
-  const isMainAppDemo = pathname.startsWith("/demo/examples/");
+  // Tampilkan di mana-mana selama pengembangan, namun utamakan di path utama
+  const isExcluded = pathname.startsWith("/dashboard") || pathname.startsWith("/admin");
 
-  if (!isMainAppDemo) {
-    return null; // Sembunyikan jika bukan di demo main app
+  if (isExcluded) {
+    return null;
   }
 
   const MAIN_APP_ROUTES = [
     { 
       group: "Akses & Gate", 
       items: [
-        { name: "Halaman Login", path: "/demo/examples/login", icon: Smartphone },
-        { name: "Pilih Profil", path: "/demo/examples/profiles", icon: Users },
+        { name: "Halaman Login", path: "/login", icon: Smartphone },
+        { name: "Pilih Profil (Bento)", path: "/select-profile", icon: Users },
       ]
     },
     { 
       group: "Zona Belajar (Anak)", 
       items: [
-        { name: "Dashboard Anak", path: "/demo/examples/dashboard", icon: Smartphone },
-        { name: "Gameplay (Eja Kata)", path: "/demo/examples/gameplay", icon: Smartphone },
+        { name: "Home (Asembly)", path: "/home", icon: Smartphone },
+        { name: "Gameplay (Membaca)", path: "/game/membaca", icon: Smartphone },
+        { name: "Profil Saya", path: "/profil", icon: Users },
       ]
     },
     { 
       group: "Pusat Kontrol (Ortu)", 
       items: [
-        { name: "Area Orang Tua", path: "#", icon: Lock },
+        { name: "Dashboard Orang Tua", path: "/parent", icon: Lock },
       ]
     }
   ];

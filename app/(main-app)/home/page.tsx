@@ -7,33 +7,65 @@ import { GameSelectionGrid } from '@/components/organisms/game-selection-grid';
 
 export default function HomeAppPage() {
   return (
-    <div className="flex flex-col p-4 gap-6 animate-in fade-in slide-in-from-bottom-4 duration-500 pb-28">
-      {/* Hero / Daily Mission */}
-      <section className="mt-4">
-        <NeoText variant="subtitle" className="mb-4 inline-block">Misi Hari Ini 🚀</NeoText>
-        <MissionCard 
-          title="Selesaikan 3 Tantangan!"
-          progress={1}
-          total={3}
-        />
+    <div className="flex flex-col p-6 gap-12 animate-in fade-in slide-in-from-bottom-8 duration-700 pb-32 max-w-2xl mx-auto">
+      
+      {/* 🚀 Daily Focus Section */}
+      <section className="space-y-6">
+        <div className="flex items-end justify-between px-2">
+          <div className="space-y-1">
+            <NeoText variant="body" className="text-muted-foreground font-black uppercase tracking-widest text-[10px]">Tantangan Hari Ini</NeoText>
+            <NeoText variant="subtitle" stroke className="text-3xl leading-none">AKTIVITAS SERU</NeoText>
+          </div>
+          <div className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-black border-2 border-primary/20">
+            3 MISI TERSISA
+          </div>
+        </div>
+
+        <div className="grid gap-4">
+          <MissionCard 
+            title="Jagoan Membaca!"
+            description="Latih kemampuan eja kata hari ini."
+            progress={1}
+            total={3}
+            className="border-2 shadow-neo hover:shadow-neo-lg transition-all"
+          />
+        </div>
       </section>
 
-      {/* Categories / Games */}
-      <section>
-        <NeoText variant="subtitle" className="mb-4 inline-block">Pilih Permainan 🎲</NeoText>
+      {/* 🎲 Exploration Section */}
+      <section className="space-y-6">
+        <div className="flex items-center justify-between px-2">
+          <div className="space-y-1">
+            <NeoText variant="body" className="text-muted-foreground font-black uppercase tracking-widest text-[10px]">Eksplorasi</NeoText>
+            <NeoText variant="subtitle" stroke className="text-3xl leading-none">PILIH DUNIA</NeoText>
+          </div>
+        </div>
         <GameSelectionGrid />
       </section>
 
-      {/* Cerita Hari Ini */}
-      <section>
-         <NeoText variant="subtitle" className="mb-4 inline-block">Cerita Baru 📖</NeoText>
-         <StoryCard 
+      {/* 📖 Storytelling Section */}
+      <section className="space-y-6">
+        <div className="flex items-center justify-between px-2">
+          <div className="space-y-1">
+            <NeoText variant="body" className="text-muted-foreground font-black uppercase tracking-widest text-[10px]">Waktu Cerita</NeoText>
+            <NeoText variant="subtitle" stroke className="text-3xl leading-none">DUNIA IMAJINASI</NeoText>
+          </div>
+        </div>
+        <div className="bg-card/40 backdrop-blur-sm p-4 rounded-3xl border-2 border-dashed border-border/40">
+          <StoryCard 
             title="Singa yang Pemberani"
-            description="Belajar tentang keberanian hari ini."
+            description="Belajar tentang keberanian di hutan rimba bersama Raja Hutan."
             emoji="🦁"
             onListen={() => {}}
-         />
+            className="bg-background shadow-none border-border"
+          />
+        </div>
       </section>
+
+      {/* Bottom Spacer/Footer info */}
+      <footer className="text-center opacity-20 py-8">
+        <NeoText variant="body" className="text-[10px] font-black uppercase tracking-[0.2em]">Pusat Belajar Saya Baca • Versi 1.0</NeoText>
+      </footer>
     </div>
   );
 }

@@ -11,7 +11,7 @@ const GAMES = [
     href: "/game/membaca",
     icon: BookOpen,
     variant: "accent",
-    styles: "bg-accent/10 border-accent shadow-[4px_4px_0_0_var(--color-accent)] hover:shadow-[6px_6px_0_0_var(--color-accent)] text-accent-foreground",
+    styles: "bg-accent/10 border-border shadow-neo hover:shadow-neo-lg text-foreground hover:bg-accent/20",
     iconWrapper: "bg-accent",
   },
   {
@@ -20,7 +20,7 @@ const GAMES = [
     href: "/game/berhitung",
     icon: Shapes,
     variant: "success",
-    styles: "bg-success/10 border-success shadow-[4px_4px_0_0_var(--color-success)] hover:shadow-[6px_6px_0_0_var(--color-success)] text-success-foreground",
+    styles: "bg-success/10 border-border shadow-neo hover:shadow-neo-lg text-foreground hover:bg-success/20",
     iconWrapper: "bg-success",
   },
   {
@@ -29,7 +29,7 @@ const GAMES = [
     href: "/game/menyanyi",
     icon: Music,
     variant: "secondary",
-    styles: "bg-secondary/10 border-secondary shadow-[4px_4px_0_0_var(--color-secondary)] hover:shadow-[6px_6px_0_0_var(--color-secondary)] text-secondary-foreground",
+    styles: "bg-secondary/10 border-border shadow-neo hover:shadow-neo-lg text-foreground hover:bg-secondary/20",
     iconWrapper: "bg-secondary",
   },
   {
@@ -38,31 +38,31 @@ const GAMES = [
     href: "/game/mewarnai",
     icon: Paintbrush,
     variant: "primary",
-    styles: "bg-primary/10 border-primary shadow-[4px_4px_0_0_var(--color-primary)] hover:shadow-[6px_6px_0_0_var(--color-primary)] text-primary-foreground",
+    styles: "bg-primary/10 border-border shadow-neo hover:shadow-neo-lg text-foreground hover:bg-primary/20",
     iconWrapper: "bg-primary",
   },
 ];
 
 export function GameSelectionGrid() {
   return (
-    <div className="grid grid-cols-2 gap-4">
+    <div className="grid grid-cols-2 gap-5">
       {GAMES.map((game) => {
         const Icon = game.icon;
         return (
           <Link 
             key={game.id} 
             href={game.href} 
-            className="block outline-none focus-visible:ring-4 ring-ring rounded-xl rounded-b-[10px]"
+            className="block outline-none focus-visible:ring-4 ring-ring rounded-xl"
           >
             <Card className={cn(
-               "h-full transition-all cursor-pointer hover:-translate-y-1 hover:-translate-x-1 active:translate-y-0 active:translate-x-0 active:shadow-none",
+               "h-full transition-all cursor-pointer hover:-translate-y-1 hover:-translate-x-1 active:translate-y-0 active:translate-x-0 active:shadow-none py-6",
                game.styles
             )}>
-              <CardContent className="p-4 sm:p-6 flex flex-col items-center justify-center text-center gap-3">
-                <div className={cn("p-4 rounded-full border-2 border-border shadow-[2px_2px_0_0_#000000]", game.iconWrapper)}>
-                  <Icon className="w-8 h-8 text-black" />
+              <CardContent className="p-4 flex flex-col items-center justify-center text-center gap-4">
+                <div className={cn("p-4 rounded-2xl border-2 border-border shadow-neo-sm", game.iconWrapper)}>
+                  <Icon className="w-10 h-10 text-black" strokeWidth={2.5} />
                 </div>
-                <NeoText variant="body" className="font-bold">{game.title}</NeoText>
+                <NeoText variant="body" className="font-black text-xl tracking-wide uppercase">{game.title}</NeoText>
               </CardContent>
             </Card>
           </Link>

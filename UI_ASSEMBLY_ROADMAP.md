@@ -4,7 +4,7 @@ Tujuan: Membangun ratusan screen dan variasi UI untuk ekosistem Edu-App yang kon
 
 ## 1. Authentication & Entry Level
 Membangun pintu masuk yang ramah anak dan aman namun tetap efisien.
-- [x] **Login Screen**: Welcome card dengan switch account (Sudah Oke).
+- [x] **Login Screen**: Welcome card dengan branding Saya Baca tinggi (Sudah Polished ✨).
 - [ ] **PIN Security Screen**: Input PIN dengan keypad angka berukuran besar untuk orang tua.
 - [ ] **Avatar Creation Room**: Step-by-step UI pemilihan karakter dasar.
 - [ ] **Avatar Customization**: UI untuk mengubah aksesoris, warna, dan ekspresi avatar.
@@ -20,7 +20,7 @@ Memastikan semua screen memiliki "jiwa" yang sama.
 
 ## 3. Home & Exploration
 Pusat navigasi utama harian anak.
-- [ ] **Main Dashboard (Misi Harian)**: List misi yang harus diselesaikan hari ini.
+- [x] **Main Dashboard (Misi Harian)**: List misi yang harus diselesaikan hari ini (Sudah Polished ✨).
 - [ ] **Learning Map (Adventure Mode)**: Visual path/peta petualangan tingkat level.
 - [ ] **Daily Streak Panel**: UI yang menunjukkan berapa hari beruntun anak sudah belajar.
 - [ ] **Daily Reward Unseal**: Animasi dan UI saat mendapatkan hadiah login harian.
@@ -40,9 +40,9 @@ Setiap screen memiliki layout edukasi yang fokus.
 - [ ] **Math Mastery Result**: Screen laporan hasil belajar berhitung (Bintang & XP).
 
 ## 5. Modul Membaca & Literasi (Literacy Path)
-- [ ] **Lobby Membaca**: Seleksi level (Eja, Kata, Kalimat, Cerita).
+- [x] **Lobby Membaca**: Seleksi level (Polished ✨).
 - [ ] **Phonics Station**: UI untuk mendengarkan bunyi huruf.
-- [ ] **Spelling Bee Screen**: Mengetik/menyusun huruf menjadi kata.
+- [x] **Spelling Bee Screen**: Mengetik/menyusun huruf menjadi kata (Polished ✨).
 - [ ] **Word Match UI**: Menghubungkan kata dengan gambar yang sesuai.
 - [ ] **Sentence Builder**: Drag and drop kata menjadi kalimat.
 - [ ] **Interactive Storybook**: Layar baca cerita dengan teks highlight otomatis.
