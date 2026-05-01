@@ -25,7 +25,7 @@ export function MissionCard({ title, description, progress, total, onAction, cla
   const percentage = Math.round((progress / total) * 100);
   
   return (
-    <Card className={cn("bg-primary/10 border-border shadow-neo-lg overflow-visible", className)}>
+    <Card className={cn("bg-card border-black shadow-neo-lg overflow-visible", className)}>
       <CardHeader className="pb-3 px-6 pt-6">
         <NeoText variant="subtitle" className="text-2xl">{title}</NeoText>
         {description && <CardDescription className="text-foreground/80 font-medium">{description}</CardDescription>}
@@ -34,14 +34,14 @@ export function MissionCard({ title, description, progress, total, onAction, cla
         <div className="space-y-3">
           <div className="flex justify-between items-end">
             <NeoText variant="body" className="text-sm font-black uppercase tracking-tight text-muted-foreground">Progres Misi</NeoText>
-            <div className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-black border-2 border-border shadow-neo-sm">
+            <div className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-black border-2 border-black shadow-neo-sm">
               {progress}/{total} MODUL
             </div>
           </div>
-          <Progress value={percentage} className="h-5 border-2 border-border shadow-neo-sm bg-background" />
+          <Progress value={percentage} className="h-5 border-2 border-black shadow-neo-sm bg-background" />
         </div>
         <ConfettiBurst>
-          <Button variant="default" className="w-full text-xl h-16 shadow-neo active:shadow-none transition-all uppercase tracking-widest font-black" onClick={onAction}>
+          <Button variant="default" className="w-full text-xl h-16 shadow-neo active:shadow-none transition-all uppercase tracking-widest font-black border-2 border-black" onClick={onAction}>
             Lanjutkan Belajar
           </Button>
         </ConfettiBurst>
@@ -63,10 +63,10 @@ export function StoryCard({ title, description, emoji, onRead, onListen, classNa
   return (
     <Card 
       onClick={onRead}
-      className={cn("bg-card flex flex-row items-center cursor-pointer hover:-translate-y-1 hover:shadow-neo p-4 gap-5 transition-all w-full border-2 border-border shadow-neo-sm", className)}
+      className={cn("bg-background flex flex-row items-center cursor-pointer hover:-translate-y-1 hover:shadow-neo p-4 gap-5 transition-all w-full border-2 border-black shadow-neo-sm", className)}
     >
       <div className="shrink-0">
-        <IllustrationHolder variant="secondary" size="lg" emoji={emoji || "📚"} className="rounded-2xl border-2 border-border shadow-neo-sm" />
+        <IllustrationHolder variant="secondary" size="lg" emoji={emoji || "📚"} className="rounded-2xl border-2 border-black shadow-neo-sm" />
       </div>
       <div className="flex-1 min-w-0">
         <NeoText variant="body" className="font-black text-lg block mb-0.5 leading-tight truncate uppercase tracking-tight">{title}</NeoText>
@@ -76,7 +76,7 @@ export function StoryCard({ title, description, emoji, onRead, onListen, classNa
             <AudioButton 
               variant="secondary" 
               size="sm" 
-              className="w-fit text-[10px] font-black uppercase h-8 px-4 border-2 shadow-neo-sm active:shadow-none"
+              className="w-fit text-[10px] font-black uppercase h-8 px-4 border-2 border-black shadow-neo-sm active:shadow-none"
               onClick={(e) => {
                 e.stopPropagation();
                 onListen();

@@ -37,9 +37,9 @@ export function BottomNav({ className, items = DEFAULT_NAV_ITEMS, variant = "def
 
   // Inner nav styles based on variant
   const navStyle = {
-    default: "flex items-center justify-around w-full max-w-md bg-card border-2 border-border rounded-2xl shadow-neo p-1",
-    floating: "flex items-center justify-around w-full max-w-xs bg-card border-2 border-border rounded-full shadow-neo p-1",
-    dock: "flex items-center justify-around w-full bg-card border-t-2 border-border p-2 pb-safe",
+    default: "flex items-center justify-around w-full max-w-md bg-card border-2 border-black rounded-2xl shadow-neo p-1",
+    floating: "flex items-center justify-around w-full max-w-xs bg-card border-2 border-black rounded-full shadow-neo p-1",
+    dock: "flex items-center justify-around w-full bg-card border-t-2 border-black p-2 pb-safe",
   };
 
   return (

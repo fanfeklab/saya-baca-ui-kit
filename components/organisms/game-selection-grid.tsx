@@ -11,8 +11,8 @@ const GAMES = [
     href: "/game/membaca",
     icon: BookOpen,
     variant: "accent",
-    styles: "bg-accent/10 border-border shadow-neo hover:shadow-neo-lg text-foreground hover:bg-accent/20",
-    iconWrapper: "bg-accent",
+    styles: "bg-accent border-black shadow-neo hover:shadow-neo-lg text-black",
+    iconWrapper: "bg-white",
   },
   {
     id: "berhitung",
@@ -20,8 +20,8 @@ const GAMES = [
     href: "/game/berhitung",
     icon: Shapes,
     variant: "success",
-    styles: "bg-success/10 border-border shadow-neo hover:shadow-neo-lg text-foreground hover:bg-success/20",
-    iconWrapper: "bg-success",
+    styles: "bg-success border-black shadow-neo hover:shadow-neo-lg text-black",
+    iconWrapper: "bg-white",
   },
   {
     id: "menyanyi",
@@ -29,8 +29,8 @@ const GAMES = [
     href: "/game/menyanyi",
     icon: Music,
     variant: "secondary",
-    styles: "bg-secondary/10 border-border shadow-neo hover:shadow-neo-lg text-foreground hover:bg-secondary/20",
-    iconWrapper: "bg-secondary",
+    styles: "bg-secondary border-black shadow-neo hover:shadow-neo-lg text-black",
+    iconWrapper: "bg-white",
   },
   {
     id: "mewarnai",
@@ -38,8 +38,8 @@ const GAMES = [
     href: "/game/mewarnai",
     icon: Paintbrush,
     variant: "primary",
-    styles: "bg-primary/10 border-border shadow-neo hover:shadow-neo-lg text-foreground hover:bg-primary/20",
-    iconWrapper: "bg-primary",
+    styles: "bg-primary border-black shadow-neo hover:shadow-neo-lg text-white",
+    iconWrapper: "bg-white",
   },
 ];
 

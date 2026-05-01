@@ -27,15 +27,15 @@ export function IllustrationHolder({
   variant = "muted", 
   size = "md", 
   emoji, 
-  className,
+  className, 
   children,
   ...props 
 }: IllustrationHolderProps) {
   return (
     <div 
       className={cn(
-        "flex items-center justify-center shrink-0 border-2 rounded-2xl shadow-[2px_2px_0_0_#000000]",
-        variantStyles[variant],
+        "flex items-center justify-center shrink-0 border-2 border-black rounded-2xl shadow-[3px_3px_0_0_#000000] bg-card",
+        variant === "muted" ? "" : variantStyles[variant],
         sizeStyles[size],
         className
       )}

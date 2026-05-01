@@ -17,9 +17,9 @@ export function TopAppBar({
   avatarSeed = "Felix" 
 }: TopAppBarProps) {
   return (
-    <header className="w-full flex items-center justify-between p-2 pl-3 bg-card border-2 border-border shadow-neo rounded-2xl">
+    <header className="w-full flex items-center justify-between p-2 pl-3 bg-card border-2 border-black shadow-neo rounded-2xl">
       <div className="flex items-center gap-3">
-        <Avatar className="w-9 h-9 border-2 border-border shadow-neo-sm bg-background">
+        <Avatar className="w-9 h-9 border-2 border-black shadow-neo-sm bg-background">
           <AvatarImage src={`https://api.dicebear.com/7.x/adventurer/svg?seed=${avatarSeed}`} alt="Avatar Anak" />
           <AvatarFallback>KID</AvatarFallback>
         </Avatar>

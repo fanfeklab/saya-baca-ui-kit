@@ -71,6 +71,11 @@ export default function SelectProfilePage() {
     router.push('/home');
   };
 
+  const handleBackToLogin = (e: React.MouseEvent) => {
+    e.preventDefault();
+    router.push('/login');
+  };
+
   return (
     <div className="min-h-screen flex flex-col p-6 gap-8 animate-in fade-in slide-in-from-bottom-8 duration-700 max-w-2xl mx-auto justify-center">
       <div className="text-center space-y-2 mb-4">
@@ -85,7 +90,7 @@ export default function SelectProfilePage() {
             key={profile.id}
             onClick={() => selectProfile(profile)}
             className={cn(
-              "relative border-2 shadow-neo hover:shadow-neo-lg transition-all cursor-pointer group group active:translate-y-1 active:translate-x-1 active:shadow-none overflow-hidden",
+              "relative border-2 border-black shadow-neo hover:shadow-neo-lg transition-all cursor-pointer group group active:translate-y-1 active:translate-x-1 active:shadow-none overflow-hidden bg-card",
               index === 0 ? "col-span-2 row-span-2 h-[320px] md:h-[400px]" : "h-[150px] md:h-[190px]"
             )}
           >
@@ -122,14 +127,17 @@ export default function SelectProfilePage() {
 
         {/* Add Profile Card */}
         <Dialog>
-          <DialogTrigger asChild>
-            <Card className="h-[150px] md:h-[190px] border-2 border-dashed border-muted-foreground/30 hover:border-primary hover:bg-primary/5 transition-all cursor-pointer flex flex-col items-center justify-center gap-3 group bg-muted/20">
-              <div className="size-12 rounded-2xl border-2 border-border bg-background flex items-center justify-center shadow-neo-sm group-hover:shadow-neo group-hover:bg-primary group-hover:text-primary-foreground transition-all">
-                <Plus className="size-6" />
-              </div>
-              <NeoText variant="body" className="font-black uppercase tracking-tighter text-muted-foreground group-hover:text-primary">Tambah Anak</NeoText>
-            </Card>
-          </DialogTrigger>
+          <DialogTrigger 
+            nativeButton={false}
+            render={
+              <Card className="h-[150px] md:h-[190px] border-2 border-dashed border-muted-foreground/30 hover:border-primary hover:bg-primary/5 transition-all cursor-pointer flex flex-col items-center justify-center gap-3 group bg-muted/20">
+                <div className="size-12 rounded-2xl border-2 border-border bg-background flex items-center justify-center shadow-neo-sm group-hover:shadow-neo group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                  <Plus className="size-6" />
+                </div>
+                <NeoText variant="body" className="font-black uppercase tracking-tighter text-muted-foreground group-hover:text-primary">Tambah Anak</NeoText>
+              </Card>
+            } 
+          />
           <DialogContent className="sm:max-w-md border-4 shadow-neo bg-card">
             <DialogHeader>
               <DialogTitle className="text-2xl font-black uppercase tracking-tighter">Profil Baru</DialogTitle>
@@ -174,7 +182,7 @@ export default function SelectProfilePage() {
       </div>
 
       <div className="text-center mt-4">
-        <Button variant="ghost" className="text-muted-foreground font-black uppercase tracking-wider text-xs hover:bg-accent/10" onClick={() => router.push('/login')}>
+        <Button variant="ghost" className="text-muted-foreground font-black uppercase tracking-wider text-xs hover:bg-accent/10" onClick={handleBackToLogin}>
           Ganti Akun Orang Tua
         </Button>
       </div>

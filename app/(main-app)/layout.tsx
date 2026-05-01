@@ -3,6 +3,7 @@
 import { BottomNav } from '@/components/molecules/bottom-nav';
 import { TopAppBar } from '@/components/molecules/top-app-bar';
 import { usePathname } from 'next/navigation';
+import { cn } from "@/lib/utils";
 
 export default function MainAppLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();

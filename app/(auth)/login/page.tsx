@@ -10,14 +10,14 @@ export default function LoginPage() {
     <div className="flex flex-col gap-8 animate-in fade-in slide-in-from-bottom-8 duration-700">
       {/* App Branding Header */}
       <div className="text-center space-y-3">
-        <div className="inline-flex items-center justify-center p-3 bg-primary rounded-2xl border-2 border-border shadow-neo mb-2">
+        <div className="inline-flex items-center justify-center p-3 bg-primary rounded-2xl border-2 border-black shadow-neo mb-2">
           <LogIn className="w-8 h-8 text-primary-foreground" />
         </div>
         <NeoText variant="title" stroke as="h1" className="text-5xl mb-2">SAYA BACA</NeoText>
         <NeoText variant="body" className="text-muted-foreground font-black uppercase tracking-[0.2em] text-[10px]">Portal Belajar Menyenangkan</NeoText>
       </div>
 
-      <Card className="w-full border-2 shadow-neo-lg bg-card translate-y-2">
+      <Card className="w-full border-2 border-black shadow-neo-lg bg-card translate-y-2">
         <CardHeader className="pb-2">
           <CardTitle className="text-2xl font-bold flex items-center gap-2">
             Masuk Akun
