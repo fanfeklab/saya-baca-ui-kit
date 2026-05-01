@@ -6,7 +6,7 @@ import { NeoText } from '@/components/atoms/neo-text';
 import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
-import { Plus, Trash2, UserCircle2, ArrowRight, Dice5 } from 'lucide-react';
+import { Plus, Trash2, UserCircle2, ArrowRight, Dice5, ShieldAlert } from 'lucide-react';
 import {
   Dialog,
   DialogContent,
@@ -128,14 +128,16 @@ export default function SelectProfilePage() {
         {/* Add Profile Card */}
         <Dialog>
           <DialogTrigger 
-            nativeButton={false}
+            nativeButton={true}
             render={
-              <Card className="h-[150px] md:h-[190px] border-2 border-dashed border-muted-foreground/30 hover:border-primary hover:bg-primary/5 transition-all cursor-pointer flex flex-col items-center justify-center gap-3 group bg-muted/20">
-                <div className="size-12 rounded-2xl border-2 border-border bg-background flex items-center justify-center shadow-neo-sm group-hover:shadow-neo group-hover:bg-primary group-hover:text-primary-foreground transition-all">
-                  <Plus className="size-6" />
-                </div>
-                <NeoText variant="body" className="font-black uppercase tracking-tighter text-muted-foreground group-hover:text-primary">Tambah Anak</NeoText>
-              </Card>
+              <button className="w-full h-full text-left outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-xl transition-all">
+                <Card className="h-[150px] md:h-[190px] border-2 border-dashed border-muted-foreground/30 hover:border-primary hover:bg-primary/5 transition-all cursor-pointer flex flex-col items-center justify-center gap-3 group bg-muted/20">
+                  <div className="size-12 rounded-2xl border-2 border-border bg-background flex items-center justify-center shadow-neo-sm group-hover:shadow-neo group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                    <Plus className="size-6" />
+                  </div>
+                  <NeoText variant="body" className="font-black uppercase tracking-tighter text-muted-foreground group-hover:text-primary">Tambah Anak</NeoText>
+                </Card>
+              </button>
             } 
           />
           <DialogContent className="sm:max-w-md border-4 shadow-neo bg-card">
@@ -181,8 +183,15 @@ export default function SelectProfilePage() {
         </Dialog>
       </div>
 
-      <div className="text-center mt-4">
-        <Button variant="ghost" className="text-muted-foreground font-black uppercase tracking-wider text-xs hover:bg-accent/10" onClick={handleBackToLogin}>
+      <div className="flex flex-col items-center gap-2 mt-4">
+        <Button 
+          variant="outline" 
+          className="w-full max-w-xs border-2 border-black font-black uppercase tracking-tighter shadow-neo hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all h-12 bg-accent text-accent-foreground"
+          onClick={() => router.push('/parent-pin')}
+        >
+          <ShieldAlert className="mr-2 size-5" /> Area Orang Tua
+        </Button>
+        <Button variant="ghost" className="text-muted-foreground font-black uppercase tracking-wider text-[10px] hover:bg-accent/10" onClick={handleBackToLogin}>
           Ganti Akun Orang Tua
         </Button>
       </div>

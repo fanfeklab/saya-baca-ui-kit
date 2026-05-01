@@ -59,15 +59,6 @@ const DEMO_ROUTES = [
       { href: '/demo/components/organisms/social', label: 'Social & Profiles' },
       { href: '/demo/components/organisms/admin', label: 'Admin Panels' }
     ]
-  },
-  {
-    title: 'Real App Screens',
-    links: [
-      { href: '/demo/examples/login', label: 'Login Screen' },
-      { href: '/demo/examples/profiles', label: 'Profile Manager' },
-      { href: '/demo/examples/dashboard', label: 'Kid Dashboard' },
-      { href: '/demo/examples/gameplay', label: 'Gameplay UI' }
-    ]
   }
 ];
 

@@ -11,47 +11,46 @@ export default function TypographyDemoPage() {
 
       <section className="space-y-6">
         <NeoText variant="subtitle">Headings</NeoText>
-        <div className="flex flex-col gap-8 p-8 border-4 border-dashed border-border rounded-xl bg-background/50 backdrop-blur-sm overflow-hidden">
-          <div>
-            <NeoText variant="title" className="text-5xl sm:text-7xl">Display Hero</NeoText>
-            <p className="text-sm text-muted-foreground mt-2">.text-5xl .sm:text-7xl (Custom Class)</p>
+        <div className="flex flex-col gap-8 p-10 border-4 border-black shadow-neo rounded-3xl bg-secondary overflow-hidden relative">
+          <div className="absolute top-0 right-0 p-4 opacity-10 rotate-12 scale-150 pointer-events-none">
+            <NeoText variant="title" className="text-8xl">Aa</NeoText>
           </div>
-          <div>
-            <NeoText variant="title">Title / H1</NeoText>
-            <p className="text-sm text-muted-foreground mt-2">variant=&quot;title&quot;</p>
+          <div className="relative z-10 transition-transform hover:translate-x-2">
+            <NeoText variant="title" className="text-6xl sm:text-8xl leading-none">JUDUL BESAR</NeoText>
+            <p className="text-xs font-black uppercase tracking-tighter mt-4 text-secondary-foreground/60 border-l-4 border-black pl-3 ml-1">Display XL / .text-8xl</p>
           </div>
-          <div>
-            <NeoText variant="subtitle">Subtitle / H2</NeoText>
-            <p className="text-sm text-muted-foreground mt-2">variant=&quot;subtitle&quot;</p>
+          <div className="relative z-10 transition-transform hover:translate-x-2">
+            <NeoText variant="title" stroke className="text-5xl text-yellow-300">OUTLINE STROKE</NeoText>
+            <p className="text-xs font-black uppercase tracking-tighter mt-4 text-secondary-foreground/60 border-l-4 border-black pl-3 ml-1">stroke prop / .text-5xl</p>
           </div>
-        </div>
-      </section>
-
-      <section className="space-y-6">
-        <NeoText variant="subtitle">Body Text</NeoText>
-        <div className="flex flex-col gap-4 p-8 border-4 border-dashed border-border rounded-xl bg-background/50 backdrop-blur-sm">
-          <div>
-            <NeoText variant="body">
-              Ini adalah contoh penggunaan font standar untuk paragraf atau deskripsi panjang. 
-              Cocok digunakan untuk konten instruksi, cerita dalam aplikasi, atau teks penjelas.
-            </NeoText>
-            <p className="text-sm text-muted-foreground mt-2">variant=&quot;body&quot;</p>
-          </div>
-          
-          <div className="mt-4">
-            <NeoText variant="body" className="font-bold">
-              Ini adalah contoh body text dengan ketebalan (bold).
-            </NeoText>
+          <div className="relative z-10 transition-transform hover:translate-x-2">
+            <NeoText variant="subtitle" className="text-3xl font-black">SUB-JUDUL KEREN</NeoText>
+            <p className="text-xs font-black uppercase tracking-tighter mt-4 text-secondary-foreground/60 border-l-4 border-black pl-3 ml-1">variant="subtitle" / .text-3xl</p>
           </div>
         </div>
       </section>
 
       <section className="space-y-6">
-        <NeoText variant="subtitle">Special Styles</NeoText>
-        <div className="flex flex-col gap-4 p-8 border-4 border-dashed border-border rounded-xl bg-background/50 backdrop-blur-sm">
-          <div>
-            <NeoText variant="title" stroke className="text-yellow-400">Title with Outline Stroke</NeoText>
-            <p className="text-sm text-muted-foreground mt-2">variant=&quot;title&quot; stroke (Berguna untuk judul game)</p>
+        <NeoText variant="subtitle">Body Text Patterns</NeoText>
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="p-8 border-4 border-black shadow-neo rounded-2xl bg-card">
+            <NeoText variant="body" className="text-lg leading-relaxed">
+              Ini adalah <strong>Body Text</strong> standar. Font yang digunakan adalah Inter, dirancang untuk keterbacaan tinggi di berbagai ukuran layar.
+            </NeoText>
+            <div className="mt-6 flex items-center gap-2">
+              <div className="size-3 bg-primary rounded-full border-2 border-black" />
+              <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Standard Body</span>
+            </div>
+          </div>
+
+          <div className="p-8 border-4 border-black shadow-neo rounded-2xl bg-accent text-accent-foreground">
+            <NeoText variant="body" className="text-lg leading-relaxed font-bold italic">
+              "Kancil berlari sangat cepat melewati sungai yang jernih."
+            </NeoText>
+            <div className="mt-6 flex items-center gap-2">
+              <div className="size-3 bg-white rounded-full border-2 border-black" />
+              <span className="text-[10px] font-black uppercase tracking-widest opacity-70">Storytelling Style</span>
+            </div>
           </div>
         </div>
       </section>
