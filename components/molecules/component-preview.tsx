@@ -3,10 +3,13 @@
 import * as React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card } from '@/components/ui/card';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
+import tsx from 'react-syntax-highlighter/dist/esm/languages/prism/tsx';
+import prism from 'react-syntax-highlighter/dist/esm/styles/prism/atom-dark';
 import { Check, Copy } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+
+SyntaxHighlighter.registerLanguage('tsx', tsx);
 
 interface ComponentPreviewProps {
   title?: string;
@@ -78,7 +81,7 @@ export function ComponentPreview({ title, description, code, children, centered 
             
             <SyntaxHighlighter 
               language="tsx" 
-              style={atomDark}
+              style={prism}
               customStyle={{ 
                 margin: 0, 
                 padding: '1.5rem', 

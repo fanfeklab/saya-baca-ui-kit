@@ -27,8 +27,8 @@ export const NeoText = React.forwardRef<HTMLElement, NeoTextProps>(
 
     // Using an inline text-stroke for the true stroke effect
     const style = stroke ? {
-      WebkitTextStroke: "2px var(--color-border)",
-      color: "var(--foreground)" 
+      textShadow: "3px 3px 0 var(--color-border)",
+      color: "var(--color-foreground)" 
     } : undefined
 
     return React.createElement(

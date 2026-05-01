@@ -16,9 +16,18 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
     try {
       const valueToStore = value instanceof Function ? value(storedValue) : value;
       setStoredValue(valueToStore);
-      if (typeof window !== "undefined") {
+    if (typeof window !== "undefined") {
+      try {
+        // Anti-pattern fix: some people might pass a React event directly to the setter
+        if (value && typeof value === 'object' && ('nativeEvent' in value || 'target' in value)) {
+          return;
+        }
+        
         window.localStorage.setItem(key, JSON.stringify(valueToStore));
+      } catch (e) {
+        console.warn("useLocalStorage serialization failed, likely circular structure:", e);
       }
+    }
     } catch (error) {
       console.error(error);
     }

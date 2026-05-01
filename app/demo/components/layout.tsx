@@ -7,6 +7,8 @@ import { ThemeToggle } from '@/components/atoms/theme-toggle';
 import { Input } from '@/components/ui/input';
 import { DocsBreadcrumbs } from '@/components/molecules/docs-breadcrumbs';
 
+export const dynamic = 'force-dynamic';
+
 export default function DemoLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex h-screen overflow-hidden bg-background">

@@ -3,7 +3,8 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Wrench, Navigation, Palette, Database, LayoutDashboard, Smartphone, Megaphone, TerminalSquare } from "lucide-react";
+import { useTheme } from "next-themes";
+import { Wrench, Navigation, Palette, Database, LayoutDashboard, Smartphone, Megaphone, TerminalSquare, Users, Lock, Sun, Moon } from "lucide-react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -34,74 +35,113 @@ const ROUTES = [
 export function DevNavigator() {
   const pathname = usePathname();
   const [open, setOpen] = React.useState(false);
+  const { theme, setTheme } = useTheme();
 
-  // Sematkan shortcut (misal: Ctrl+K / Cmd+K) untuk dev tools di state lanjutan nanti.
+  // Cek apakah di demo main app
+  const isMainAppDemo = pathname.startsWith("/demo/examples/");
 
-  if (process.env.NODE_ENV === "production" && process.env.NEXT_PUBLIC_SHOW_DEVTOOLS !== "true") {
-    return null; // Sembunyikan di production unless explicitly allowed
+  if (!isMainAppDemo) {
+    return null; // Sembunyikan jika bukan di demo main app
   }
+
+  const MAIN_APP_ROUTES = [
+    { 
+      group: "Akses & Gate", 
+      items: [
+        { name: "Halaman Login", path: "/demo/examples/login", icon: Smartphone },
+        { name: "Pilih Profil", path: "/demo/examples/profiles", icon: Users },
+      ]
+    },
+    { 
+      group: "Zona Belajar (Anak)", 
+      items: [
+        { name: "Dashboard Anak", path: "/demo/examples/dashboard", icon: Smartphone },
+        { name: "Gameplay (Eja Kata)", path: "/demo/examples/gameplay", icon: Smartphone },
+      ]
+    },
+    { 
+      group: "Pusat Kontrol (Ortu)", 
+      items: [
+        { name: "Area Orang Tua", path: "#", icon: Lock },
+      ]
+    }
+  ];
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger 
-        className="fixed bottom-4 right-4 z-[9999] rounded-full h-14 w-14 shadow-[4px_4px_0_0_#000000] hover:-translate-y-1 hover:shadow-[6px_6px_0_0_#000000] transition-all bg-indigo-500 hover:bg-indigo-600 text-white border-2 border-black flex items-center justify-center outline-none focus-visible:ring-4 focus-visible:ring-ring"
+        className="fixed bottom-8 right-8 z-[9999] rounded-full h-16 w-16 shadow-neo hover:-translate-y-1 hover:shadow-neo-lg transition-all bg-accent hover:bg-accent/90 text-accent-foreground border-4 border-black flex items-center justify-center outline-none"
       >
-        <Wrench className="h-6 w-6" />
+        <Navigation className="h-8 w-8" />
       </SheetTrigger>
       <SheetContent side="right" className="w-[300px] sm:w-[400px] z-[10000] flex flex-col p-0 border-l-4 border-black">
-        <SheetHeader className="p-6 border-b-2 border-border bg-muted/50 shrink-0">
-          <SheetTitle className="flex items-center gap-2">
-            <TerminalSquare className="w-5 h-5" />
-            Developer Tools
+        <SheetHeader className="p-6 border-b-4 border-border bg-muted/50 shrink-0">
+          <SheetTitle className="flex items-center gap-2 font-black text-2xl">
+            <Smartphone className="w-6 h-6" />
+            Main App Demo
           </SheetTitle>
-          <p className="text-sm text-muted-foreground text-left">
-            Navigasi cepat dan kontrol state untuk mempercepat UI/UX design.
+          <p className="text-sm font-bold text-muted-foreground text-left">
+            Navigasi Halaman Prototype
           </p>
         </SheetHeader>
         
         <ScrollArea className="flex-1 min-h-0">
-          <div className="p-6 space-y-6">
-            
-            {/* Quick Navigation */}
+          <div className="p-6 space-y-8">
             <div>
-              <h3 className="font-bold text-sm mb-3 flex items-center gap-2">
-                <Navigation className="w-4 h-4" /> Route Navigator
+              <h3 className="font-black text-xs text-muted-foreground uppercase tracking-[0.2em] mb-4">
+                Pengaturan Tampilan
               </h3>
-              <div className="space-y-4">
-                {ROUTES.map((group) => (
-                  <div key={group.group}>
-                    <div className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-2">
-                      {group.group}
-                    </div>
-                    <div className="flex flex-col gap-1">
-                      {group.items.map((route) => {
-                        const Icon = route.icon;
-                        const isActive = pathname === route.path;
-                        return (
-                          <Link 
-                            key={route.path} 
-                            href={route.path}
-                            onClick={() => setOpen(false)}
-                            className={`flex items-center justify-between p-2 rounded-md border-2 transition-all ${
-                              isActive 
-                                ? "bg-primary/20 border-primary shadow-[2px_2px_0_0_var(--color-primary)] font-bold text-primary" 
-                                : "bg-card border-transparent hover:border-border hover:shadow-[2px_2px_0_0_#000000]"
-                            }`}
-                          >
-                            <div className="flex items-center gap-2 text-sm">
-                              <Icon className="w-4 h-4" />
-                              {route.name}
-                            </div>
-                            {isActive && <Badge variant="default" className="text-[10px] h-4 px-1 py-0 shadow-none">Active</Badge>}
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  </div>
-                ))}
+              <div className="flex gap-4">
+                <Button 
+                  variant="outline" 
+                  className={`flex-1 h-12 rounded-2xl border-4 shadow-neo-sm hover:-translate-y-1 hover:shadow-neo transition-all ${theme === 'light' ? 'bg-primary text-primary-foreground border-border' : ''}`}
+                  onClick={() => setTheme('light')}
+                >
+                  <Sun className="mr-2 h-5 w-5" />
+                  Terang
+                </Button>
+                <Button 
+                  variant="outline" 
+                  className={`flex-1 h-12 rounded-2xl border-4 shadow-neo-sm hover:-translate-y-1 hover:shadow-neo transition-all ${theme === 'dark' ? 'bg-primary text-primary-foreground border-border' : ''}`}
+                  onClick={() => setTheme('dark')}
+                >
+                  <Moon className="mr-2 h-5 w-5" />
+                  Gelap
+                </Button>
               </div>
             </div>
 
+            {MAIN_APP_ROUTES.map((group) => (
+              <div key={group.group}>
+                <h3 className="font-black text-xs text-muted-foreground uppercase tracking-[0.2em] mb-4">
+                  {group.group}
+                </h3>
+                <div className="flex flex-col gap-3">
+                  {group.items.map((route) => {
+                    const Icon = route.icon;
+                    const isActive = pathname === route.path;
+                    return (
+                      <Link 
+                        key={route.path} 
+                        href={route.path}
+                        onClick={() => setOpen(false)}
+                        className={`flex items-center justify-between p-4 rounded-2xl border-4 transition-all ${
+                          isActive 
+                            ? "bg-primary border-border shadow-neo translate-x-1 font-black text-white" 
+                            : "bg-card border-border shadow-neo-sm hover:shadow-neo hover:-translate-y-1 text-foreground font-bold"
+                        } ${route.path === "#" ? "opacity-50 cursor-not-allowed" : ""}`}
+                      >
+                        <div className="flex items-center gap-3 text-sm">
+                          <Icon className="w-5 h-5" />
+                          {route.name}
+                        </div>
+                        {isActive && <div className="size-2 bg-white rounded-full animate-pulse" />}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
           </div>
         </ScrollArea>
       </SheetContent>

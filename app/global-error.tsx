@@ -14,7 +14,7 @@ export default function GlobalError({
 }) {
   useEffect(() => {
     // Di level enterprise, error ini dikirim ke layanan monitoring (Sentry / Datadog)
-    console.error('Terjadi kesalahan level global:', error);
+    console.error('Terjadi kesalahan level global:', error?.message || String(error));
   }, [error]);
 
   return (

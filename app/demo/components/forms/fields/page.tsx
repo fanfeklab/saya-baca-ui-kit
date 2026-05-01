@@ -36,7 +36,7 @@ export default function FieldsDemoPage() {
             <CardTitle>Register Dummy</CardTitle>
           </CardHeader>
           <CardContent>
-            <form onSubmit={form.handleSubmit((data) => alert(JSON.stringify(data)))} className="space-y-6">
+            <form onSubmit={form.handleSubmit((data) => console.log(data))} className="space-y-6">
               <FormField 
                 id="username"
                 label="Username"

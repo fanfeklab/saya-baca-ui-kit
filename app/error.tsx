@@ -15,7 +15,7 @@ export default function ErrorBoundary({
 }) {
   useEffect(() => {
     // Log error ke sistem pelacakan APM (seperti Sentry/LogRocket)
-    console.error('Error terdeteksi oleh Error Boundary:', error);
+    console.error('Error terdeteksi oleh Error Boundary:', error?.message || String(error));
   }, [error]);
 
   return (

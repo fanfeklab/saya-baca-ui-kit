@@ -1,6 +1,19 @@
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
+  experimental: {
+    workerThreads: false,
+    cpus: 1,
+    optimizePackageImports: [
+      'lucide-react',
+      'recharts',
+      'framer-motion',
+      'motion',
+      '@radix-ui/react-icons'
+    ]
+  },
+  productionBrowserSourceMaps: false,
+  poweredByHeader: false,
   reactStrictMode: true,
   eslint: {
     ignoreDuringBuilds: true,
@@ -26,7 +39,6 @@ const nextConfig: NextConfig = {
     ],
   },
   output: 'standalone',
-  transpilePackages: ['motion'],
   webpack: (config, {dev}) => {
     // HMR is disabled in AI Studio via DISABLE_HMR env var.
     if (dev && process.env.DISABLE_HMR === 'true') {

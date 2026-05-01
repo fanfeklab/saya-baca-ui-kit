@@ -13,26 +13,26 @@ export default function LandingPage() {
 
       <main className="flex-1 flex flex-col items-center justify-center py-12 px-6 z-10 w-full max-w-5xl mx-auto space-y-12">
         <div className="space-y-6 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-            Aplikasi Belajar <br/> <span className="text-primary">Saya Baca</span>
+          <h1 className="text-4xl md:text-7xl font-bold tracking-tight">
+            Petualangan <br/> <span className="text-primary italic">Saya Baca</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground bg-background/90 p-4 rounded-xl border-2 border-border shadow-neo max-w-2xl mx-auto backdrop-blur-sm">
-            Aplikasi PWA edukasi anak usia TK dengan fitur gamifikasi, cerita interaktif, sosial, dan sistem monitoring untuk orang tua.
+            Platform edukasi anak usia dini yang didesain dengan prinsip Neobrutalism yang ceria, interaktif, dan penuh petualangan.
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-            <Link href="/demo/components" className="w-full sm:w-auto px-6 py-4 border-2 border-border shadow-neo bg-primary text-primary-foreground font-bold rounded-xl hover:-translate-y-1 hover:-translate-x-1 hover:shadow-neo-lg active:translate-y-1 active:translate-x-1 active:shadow-none transition-all duration-200">
-              Lihat Komponen UI
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8">
+            <Link href="/demo/examples/login" className="w-full sm:w-auto px-8 py-5 border-4 border-border shadow-neo bg-accent text-accent-foreground text-xl font-black rounded-2xl hover:-translate-y-1 hover:-translate-x-1 hover:shadow-neo-lg active:translate-y-1 active:translate-x-1 active:shadow-none transition-all duration-200">
+              Demo Aplikasi Utama
             </Link>
-            <Link href="/dashboard" className="w-full sm:w-auto px-6 py-4 border-2 border-border shadow-neo bg-secondary text-secondary-foreground font-bold rounded-xl hover:-translate-y-1 hover:-translate-x-1 hover:shadow-neo-lg active:translate-y-1 active:translate-x-1 active:shadow-none transition-all duration-200">
-              Dashboard Admin
-            </Link>
+            <div className="flex gap-4">
+              <Link href="/demo/components" className="px-6 py-4 border-2 border-border shadow-neo bg-card font-bold rounded-xl hover:-translate-y-1 transition-all">
+                UI Kit Docs
+              </Link>
+              <Link href="/dashboard" className="px-6 py-4 border-2 border-border shadow-neo bg-secondary text-secondary-foreground font-bold rounded-xl hover:-translate-y-1 transition-all">
+                Admin Panel
+              </Link>
+            </div>
           </div>
-        </div>
-
-        <div className="p-8 border-4 border-dashed border-border rounded-xl bg-background/80 backdrop-blur-sm max-w-lg w-full text-center">
-          <h2 className="text-2xl font-bold mb-2 flex items-center justify-center gap-2">🚧 Under Construction</h2>
-          <p className="text-muted-foreground font-medium">Proyek saat ini sedang dalam pengembangan Fase 1 (Scaffold & Tema Global)</p>
         </div>
       </main>
       
